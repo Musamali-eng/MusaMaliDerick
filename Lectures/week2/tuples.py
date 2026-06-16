@@ -1,3 +1,10 @@
+#creating a tuple
+Books = ("Python", "Java", "C++", "JavaScript")
+print(Books)
+print(type(Books))
+
+#Demonstrating Heterogenenous 
+
 #how to  delete a tuple
 Books = ("Python", "Java", "C++", "JavaScript")
 Books = list(Books)
