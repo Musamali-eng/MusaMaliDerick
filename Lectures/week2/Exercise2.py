@@ -1,3 +1,4 @@
+#Create a program that uses function to display student information, your output should display, name ,age ,course studentnumber
 def display_student_info(name, age, course, student_number):
     print("Student Information")
     print("-------------------")

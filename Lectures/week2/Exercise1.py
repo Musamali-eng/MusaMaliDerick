@@ -1,3 +1,4 @@
+#write  a function that takes input and calculate area of a rectangle
 def rectangle_area():
     length = int(input("Enter the length: "))
     width = int(input("Enter the width: "))

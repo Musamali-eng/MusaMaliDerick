@@ -1,8 +1,8 @@
 #functions in python
-#built in functions
-#Example of built in functions
-#print("Hello world!") #This will print Hello world! to the console
-#len("Hello world!") # This will return the length of the string "Hello world!" which is 12
+#built-in functions
+#Example of built-in functions
+print("Hello world!") #This will print Hello world! to the console
+print(len("Hello world!")) # This will return the length of the string "Hello world!" which is 12
 
 #def greet():
  #print("Welcome to Python programming!")
@@ -21,14 +21,14 @@
 #square_number()
 
 #parameters
-#def greet_user(name):
- # print(f"My name is", name)
-#greet_user("mak")
-
+def greet_user(name):
+ print(f"My name is", name)
 
 #arguments
-#example
-# greet ("mark john")
+#example of argument
+greet_user("Mark")# this is an argument
+
+greet_user ("mark john")
 
 # Fuction with a single parameter
 #def greet(name):
@@ -48,3 +48,63 @@ def display(name,age):
   print(age)
 display("Juma Sadamu",30)
 
+#keyword arguments
+#arguments that can be specified using parameter name
+def display(name,age):
+  print(name)
+  print(age)
+display(name = "Alex Ssemanda",age=30)
+
+#difault paramer 
+#Is assigned if no argument is provided
+def greet(name = "Sserwada Tom"):
+ print(f"Hello you are welcome to python function", name)
+greet()
+greet("Paul SSemwanga")
+
+#Return Statement
+#sends a value back to the caller
+#labactivity
+# Return Statement
+# Sends a value back to the caller
+
+def add(a, b):
+    return a * b
+
+result = add(40,8)
+print(result)
+
+# Multiple return values
+
+def Calculator(a, b):
+    return a + b, a - b
+
+sum_result, diff_result = Calculator(20, 3)
+
+print("Sum =", sum_result)
+print("Difference =", diff_result)
+
+
+#variable scope
+#local variable accessed inside the function
+
+
+def myfunction():
+   a = 10
+   b = 20
+   print("variable a:", a)
+   print("variable b:", b)
+   return a+b
+   
+print (myfunction())
+
+#global variable
+name = "Python programming"
+marks = 80
+
+def myfunction():
+#accessing inside the function 
+ print("Name:",name)
+ print("Marks:", marks)
+#function call
+myfunction()
