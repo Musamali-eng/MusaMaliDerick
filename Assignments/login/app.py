@@ -63,8 +63,9 @@ def register():
         else:
             cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email))
             mysql.connection.commit()
-            msg = 'You have successfully registered!'
+            msg = 'Registration successful! Please login'
     return render_template('register.html', msg=msg)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

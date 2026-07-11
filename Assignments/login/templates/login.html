@@ -4,23 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Login</title>
 </head>
 <body>
 
-    <div class="container">  <!-- Wrapper for form -->
-        <h2 class="word">Login</h2>
+    <div class="container">
+        <span class="brand-icon"></span>
+        <h2 class="word">Welcome Back</h2>
+        <p class="subtitle">Sign in to your account to continue</p>
         
         <form action="{{ url_for('login') }}" method="post">
-            <div>{{ msg }}</div>
+            {% if msg %}
+                <div class="msg {% if 'Incorrect' in msg or 'Invalid' in msg %}error{% else %}success{% endif %}">
+                    {{ msg }}
+                </div>
+            {% endif %}
 
-            <input class="textbox" type="text" name="username" placeholder="Enter Username" required>
-            <input class="textbox" type="password" name="password" placeholder="Enter Password" required>
-            
-            <button class="btn" type="submit">Login</button>
+            <div class="input-group">
+                <label><i class="fas fa-user" style="margin-right: 6px; color: #667eea;"></i> Username</label>
+                <i class="fas fa-user input-icon"></i>
+                <input class="textbox" type="text" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-lock" style="margin-right: 6px; color: #667eea;"></i> Password</label>
+                <i class="fas fa-lock input-icon"></i>
+                <input class="textbox" type="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-options">
+                <label>
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button class="btn" type="submit">
+                <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i> Sign In
+            </button>
         </form>
 
-        <p class="bottom">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <p class="bottom">Don't have an account? <a href="{{ url_for('register') }}">Create one now</a></p>
     </div>
 
 </body>

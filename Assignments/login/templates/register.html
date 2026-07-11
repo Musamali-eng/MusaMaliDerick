@@ -4,24 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Register</title>
 </head>
 <body>
 
-    <div class="container">  <!-- Wrapper for form -->
-        <h2 class="word">Register</h2>
+    <div class="container">
+        <span class="brand-icon"></span>
+        <h2 class="word">Create Account</h2>
+        <p class="subtitle">Join us and get started today</p>
 
         <form action="{{ url_for('register') }}" method="post">
-            <div>{{ msg }}</div>
+            {% if msg %}
+                <div class="msg {% if 'successfully' in msg %}success{% else %}error{% endif %}">
+                    {{ msg }}
+                </div>
+            {% endif %}
 
-            <input class="textbox" type="text" name="username" placeholder="Enter Username" required>
-            <input class="textbox" type="password" name="password" placeholder="Enter Password" required>
-            <input class="textbox" type="email" name="email" placeholder="Enter Email" required>
+            <div class="input-group">
+                <label><i class="fas fa-user" style="margin-right: 6px; color: #667eea;"></i> Username</label>
+                <i class="fas fa-user input-icon"></i>
+                <input class="textbox" type="text" name="username" placeholder="Choose a username" required>
+            </div>
 
-            <button class="btn" type="submit">Register</button>
+            <div class="input-group">
+                <label><i class="fas fa-envelope" style="margin-right: 6px; color: #667eea;"></i> Email</label>
+                <i class="fas fa-envelope input-icon"></i>
+                <input class="textbox" type="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-lock" style="margin-right: 6px; color: #667eea;"></i> Password</label>
+                <i class="fas fa-lock input-icon"></i>
+                <input class="textbox" type="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <button class="btn" type="submit">
+                <i class="fas fa-user-plus" style="margin-right: 8px;"></i> Create Account
+            </button>
         </form>
 
-        <p class="bottom">Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        <div class="divider">
+            <span>already a member?</span>
+        </div>
+
+        <p class="bottom">Already have an account? <a href="{{ url_for('login') }}">Sign in here</a></p>
     </div>
 
 </body>
