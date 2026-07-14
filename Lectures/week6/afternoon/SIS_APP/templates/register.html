@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Register Student - Student Information System{% endblock %}
+
+{% block content %}
+<section class="register-page">
+    <div class="register-card">
+        <div class="register-header">
+            <div class="header-icon">📝</div>
+            <h2>Register New Student</h2>
+            <p class="register-subtitle">Fill in the details below to add a new student to the system</p>
+        </div>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="register-form-modern">
+            <div class="register-form-grid">
+                <div class="form-group-modern">
+                    <label for="student_name">
+                        <span class="label-icon">👤</span>
+                        Student Name <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="student_name" name="student_name" 
+                               value="{{ form_data.student_name if form_data else '' }}" 
+                               placeholder="Enter full name" required>
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="registration_number">
+                        <span class="label-icon">🎓</span>
+                        Registration Number <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="registration_number" name="registration_number" 
+                               value="{{ form_data.registration_number if form_data else '' }}" 
+                               placeholder="e.g., STU2024001" required>
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="email">
+                        <span class="label-icon">✉️</span>
+                        Email Address <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" 
+                               value="{{ form_data.email if form_data else '' }}" 
+                               placeholder="Enter email address" required>
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="programme">
+                        <span class="label-icon">📚</span>
+                        Programme of Study <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="programme" name="programme" 
+                               value="{{ form_data.programme if form_data else '' }}" 
+                               placeholder="e.g., Computer Science" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="register-form-actions">
+                <button type="submit" class="btn-register">
+                    <span class="btn-icon">✅</span>
+                    Register Student
+                </button>
+                <button type="reset" class="btn-reset">
+                    <span class="btn-icon">🔄</span>
+                    Reset Form
+                </button>
+                <a href="{{ url_for('students_list') }}" class="btn-cancel-register">
+                    ❌ Cancel
+                </a>
+            </div>
+        </form>
+
+        <div class="register-footer">
+            <p>Already have an account? <a href="{{ url_for('students_list') }}">View Students</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

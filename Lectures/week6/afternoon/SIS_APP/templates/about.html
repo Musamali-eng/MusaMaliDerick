@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}About - Student Information System{% endblock %}
+
+{% block content %}
+<section class="about-page">
+    <div class="about-card">
+        <div class="about-header">
+            <div class="about-icon">ℹ️</div>
+            <h2>About Student Information System</h2>
+            <p class="about-subtitle">Version 2.0 - Modern Student Management Platform</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-grid">
+                <div class="about-section">
+                    <h3>📖 Overview</h3>
+                    <p>
+                        The Student Information System (SIS) is a comprehensive web application 
+                        designed to streamline the management of student records. Built with modern 
+                        technologies, it provides an intuitive interface for administrators to 
+                        register, track, and manage student information efficiently.
+                    </p>
+                </div>
+
+                <div class="about-section">
+                    <h3>✨ Key Features</h3>
+                    <ul class="feature-list">
+                        <li>✅ Student Registration with validation</li>
+                        <li>✅ View all registered students</li>
+                        <li>✅ Search students by name</li>
+                        <li>✅ Edit and update student information</li>
+                        <li>✅ Delete student records</li>
+                        <li>✅ View student profiles</li>
+                        <li>✅ Responsive design for all devices</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3>🛠️ Technology Stack</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">SQLAlchemy</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Jinja2</span>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>📊 Database Schema</h3>
+                    <div class="schema-info">
+                        <div class="schema-item">
+                            <strong>Students Table</strong>
+                            <ul>
+                                <li>id (Primary Key)</li>
+                                <li>student_name</li>
+                                <li>registration_number (Unique)</li>
+                                <li>email (Unique)</li>
+                                <li>programme</li>
+                                <li>is_active</li>
+                                <li>created_at</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3>👨‍💻 Developer</h3>
+                    <div class="developer-info">
+                        <p>Built with ❤️ using Flask and Python</p>
+                        <p class="developer-credit">© 2026 Student Information System. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-actions">
+                <a href="{{ url_for('home') }}" class="btn btn-primary">🏠 Back to Home</a>
+                <a href="{{ url_for('students_list') }}" class="btn btn-info">📚 View Students</a>
+                <a href="{{ url_for('register') }}" class="btn btn-success">📝 Register Student</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

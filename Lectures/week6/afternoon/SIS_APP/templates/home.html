@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Student Information System{% endblock %}
+
+{% block content %}
+<section class="home-page">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-icon">🎓</div>
+            <h1>Welcome to the <span>Student Information System</span></h1>
+            <p class="hero-subtitle">Manage student records efficiently and effectively.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">{{ total_students }}</span>
+                    <span class="stat-label">Registered Students</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">{% if total_students > 0 %}Active{% else %}0{% endif %}</span>
+                    <span class="stat-label">Active Records</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-hero">📝 Register Now</a>
+                <a href="{{ url_for('students_list') }}" class="btn btn-secondary btn-hero">👁️ View All Students</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Easy Registration</h3>
+                <p>Simple and intuitive registration process for new students with instant validation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Student Management</h3>
+                <p>Track and manage student information with ease using our comprehensive system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Quick Search</h3>
+                <p>Find student records instantly using our powerful search functionality.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <h3>Edit & Update</h3>
+                <p>Easily update student information and keep records up-to-date.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions-section">
+        <div class="quick-actions-card">
+            <h3>🚀 Quick Actions</h3>
+            <div class="quick-actions-grid">
+                <a href="{{ url_for('register') }}" class="quick-action-btn primary">
+                    <span class="action-icon">➕</span>
+                    Add New Student
+                </a>
+                <a href="{{ url_for('students_list') }}" class="quick-action-btn secondary">
+                    <span class="action-icon">📋</span>
+                    View All Students
+                </a>
+                <a href="{{ url_for('about') }}" class="quick-action-btn info">
+                    <span class="action-icon">ℹ️</span>
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

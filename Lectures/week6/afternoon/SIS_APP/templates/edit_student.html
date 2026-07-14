@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Student - Student Information System{% endblock %}
+
+{% block content %}
+<section class="edit-student-page">
+    <div class="edit-card">
+        <!-- Header -->
+        <div class="edit-card-header">
+            <div class="header-left">
+                <div class="back-button">
+                    <a href="{{ url_for('students_list') }}" class="btn-back">
+                        ← Back to Students
+                    </a>
+                </div>
+                <h2>✏️ Edit Student</h2>
+                <p class="subtitle">Update student information</p>
+            </div>
+            <div class="student-badge">
+                <span class="badge-id">#{{ student.id }}</span>
+                <span class="badge-status active">Active</span>
+            </div>
+        </div>
+
+        <!-- Student Info Card -->
+        <div class="student-summary">
+            <div class="summary-avatar">
+                <span class="avatar-emoji">👨‍🎓</span>
+            </div>
+            <div class="summary-info">
+                <h3>{{ student.student_name }}</h3>
+                <p>{{ student.registration_number }}</p>
+                <span class="summary-date">Registered: {{ student.created_at.strftime('%B %d, %Y') if student.created_at else 'N/A' }}</span>
+            </div>
+        </div>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Edit Form -->
+        <form method="POST" class="edit-form-modern">
+            <div class="form-grid">
+                <div class="form-group-modern">
+                    <label for="student_name">Student Name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="student_name" name="student_name" value="{{ student.student_name }}" required>
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="registration_number">Registration Number</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🎓</span>
+                        <input type="text" id="registration_number" name="registration_number" value="{{ student.registration_number }}" required>
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="email" name="email" value="{{ student.email }}" required>
+                    </div>
+                </div>
+
+                <div class="form-group-modern">
+                    <label for="programme">Programme of Study</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📚</span>
+                        <input type="text" id="programme" name="programme" value="{{ student.programme }}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions-modern">
+                <button type="submit" class="btn-update">
+                    <span class="btn-icon">💾</span>
+                    Update Student
+                </button>
+                <a href="{{ url_for('students_list') }}" class="btn-cancel-modern">
+                    Cancel
+                </a>
+                <a href="{{ url_for('student_profile', name=student.student_name) }}" class="btn-view">
+                    👁️ View Profile
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
