@@ -11,3 +11,8 @@
 
 #How to create a Django project
 #Use django-admin startproject name
+
+#Templates
+#Is an HTML file that also includes css, javascript e.t.c
+#They help to render data from viewsinclude the HTML structure
+#User input and form 
