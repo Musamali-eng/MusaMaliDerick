@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .forms import ContactForm
 
 def home(request):
-    return HttpResponse("Hello, World! Welcome to Django!")
+    return render(request, 'home.html')
 
 def about(request):
-    return HttpResponse("This is the about page.")
+    return render(request, 'about.html')
 
 def contact(request):
     if request.method == 'POST':
@@ -17,8 +16,10 @@ def contact(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             
-            # Process the data (send email, save to database, etc.)
-            return HttpResponse(f"Thank you {name}! Your message has been sent.")
+            # You can save to database or send email here
+            
+            # Redirect to success page with name
+            return render(request, 'success.html', {'name': name})
     else:
         form = ContactForm()
     

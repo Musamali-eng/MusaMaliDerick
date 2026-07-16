@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Django Project</title>
+    <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">MyDjango</a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <h1 class="page-title">✅ Success!</h1>
+        
+        <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; max-width: 600px; margin: 0 auto;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+            <h2 style="color: #27ae60; margin-bottom: 15px;">Thank You!</h2>
+            <p style="font-size: 1.2rem; color: #555; line-height: 1.8;">
+                Thank you <strong>{{ name }}</strong>! Your message has been sent successfully.
+            </p>
+            <p style="color: #777; margin: 20px 0;">
+                We'll get back to you as soon as possible.
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="/contact/" class="btn btn-primary">Send Another Message</a>
+                <a href="/" class="btn btn-secondary" style="margin-left: 10px;">Go Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: 60px;">
+        <p>&copy; 2026 My Django Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>

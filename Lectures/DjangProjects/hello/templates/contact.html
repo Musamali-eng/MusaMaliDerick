@@ -1,88 +1,442 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Contact Us</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        textarea {
-            height: 100px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MyDjango</title>
+    <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>Contact Us</h1>
-    
-    <form method="post">
-        {% csrf_token %}
-        
-        <div class="form-group">
-            {{ form.name.label_tag }}
-            {{ form.name }}
-            {% if form.name.errors %}
-                <div class="error">{{ form.name.errors }}</div>
-            {% endif %}
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <i class="fas fa-code"></i> MyDjango
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/contact/" class="btn-nav">Get Started</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-        
-        <div class="form-group">
-            {{ form.email.label_tag }}
-            {{ form.email }}
-            {% if form.email.errors %}
-                <div class="error">{{ form.email.errors }}</div>
-            {% endif %}
+    </nav>
+
+    <!-- ===== CONTACT HERO ===== -->
+    <section class="contact-hero">
+        <div class="contact-hero-container">
+            <span class="contact-badge">
+                <i class="fas fa-headset"></i> 24/7 Support
+            </span>
+            <h1 class="contact-hero-title">Get in <span class="gradient-text">Touch</span></h1>
+            <p class="contact-hero-description">
+                Have a question, idea, or project in mind? We'd love to hear from you. 
+                Our team is ready to help you bring your vision to life.
+            </p>
+            <div class="contact-hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">500+</span>
+                    <span class="hero-stat-label">Happy Clients</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">98%</span>
+                    <span class="hero-stat-label">Satisfaction Rate</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">24/7</span>
+                    <span class="hero-stat-label">Support Available</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="form-group">
-            {{ form.subject.label_tag }}
-            {{ form.subject }}
-            {% if form.subject.errors %}
-                <div class="error">{{ form.subject.errors }}</div>
-            {% endif %}
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Contact Info Cards -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Visit Our Office</h4>
+                            <p>123 Django Street, Suite 100</p>
+                            <p>Silicon Valley, CA 94025</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Email Us</h4>
+                            <p>info@mydjango.com</p>
+                            <p>support@mydjango.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                            <p>+1 (555) 987-6543</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon-wrapper">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Working Hours</h4>
+                            <p><span class="day">Mon - Fri:</span> 9:00 AM - 6:00 PM</p>
+                            <p><span class="day">Sat - Sun:</span> Closed</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <h4>Connect With Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <span class="form-badge">📝 Send Message</span>
+                        <h2>We'd Love to Hear From You</h2>
+                        <p>Fill out the form and we'll get back to you within 24 hours</p>
+                    </div>
+                    <form method="post" class="contact-form" id="contactForm">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_name">
+                                <i class="fas fa-user"></i> Your Name <span class="required">*</span>
+                            </label>
+                            {{ form.name }}
+                            <div class="error-message" id="nameError"></div>
+                            {% if form.name.errors %}
+                                <div class="error">{{ form.name.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">
+                                <i class="fas fa-envelope"></i> Email Address <span class="required">*</span>
+                            </label>
+                            {{ form.email }}
+                            <div class="error-message" id="emailError"></div>
+                            {% if form.email.errors %}
+                                <div class="error">{{ form.email.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_subject">
+                                <i class="fas fa-tag"></i> Subject <span class="required">*</span>
+                            </label>
+                            {{ form.subject }}
+                            <div class="error-message" id="subjectError"></div>
+                            {% if form.subject.errors %}
+                                <div class="error">{{ form.subject.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_message">
+                                <i class="fas fa-comment"></i> Message <span class="required">*</span>
+                            </label>
+                            {{ form.message }}
+                            <div class="error-message" id="messageError"></div>
+                            {% if form.message.errors %}
+                                <div class="error">{{ form.message.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit" id="submitBtn">
+                                <span class="btn-text">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </span>
+                                <span class="btn-loading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Sending...
+                                </span>
+                            </button>
+                            <div class="form-success" id="formSuccess" style="display: none;">
+                                <i class="fas fa-check-circle"></i> Message sent successfully!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-        <div class="form-group">
-            {{ form.message.label_tag }}
-            {{ form.message }}
-            {% if form.message.errors %}
-                <div class="error">{{ form.message.errors }}</div>
-            {% endif %}
+    </section>
+
+    <!-- ===== MAP SECTION WITH GOOGLE MAPS ===== -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-header">
+                <span class="map-badge">📍 Find Us</span>
+                <h2 class="map-title">Visit Our <span class="gradient-text">Location</span></h2>
+                <p class="map-subtitle">We're located in the heart of Silicon Valley</p>
+            </div>
+            <div class="map-wrapper">
+                <div class="map-card">
+                    <div class="map-responsive">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.556482274812!2d-122.08385168469184!3d37.42206597982443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c6661937e0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Google Map Location">
+                        </iframe>
+                    </div>
+                    <div class="map-info-overlay">
+                        <div class="map-info-content">
+                            <div class="map-info-left">
+                                <div class="map-info-icon">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+                                <div class="map-info-text">
+                                    <h4>MyDjango Headquarters</h4>
+                                    <p>123 Django Street, Suite 100<br>Silicon Valley, CA 94025</p>
+                                </div>
+                            </div>
+                            <div class="map-info-right">
+                                <a href="https://www.google.com/maps/dir//Googleplex,+1600+Amphitheatre+Parkway,+Mountain+View,+CA+94043" 
+                                   target="_blank" 
+                                   class="btn-map-primary">
+                                    <i class="fas fa-directions"></i> Get Directions
+                                </a>
+                                <a href="https://www.google.com/maps/place/Googleplex/@37.4220659,-122.0838517,17z/data=!3m1!4b1!4m5!3m4!1s0x808fba02425dad8f:0x6c296c6661937e0!8m2!3d37.4220659!4d-122.0838517" 
+                                   target="_blank" 
+                                   class="btn-map-secondary">
+                                    <i class="fas fa-expand"></i> View Larger Map
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-simple">
+        <div class="cta-simple-container">
+            <div class="cta-simple-content">
+                <div class="cta-simple-text">
+                    <span class="cta-simple-badge">🚀 Start Now</span>
+                    <h2>Ready to Build Something Amazing?</h2>
+                    <p>Let's turn your idea into reality with Django.</p>
+                </div>
+                <a href="/contact/" class="btn-primary cta-simple-btn">
+                    <i class="fas fa-rocket"></i> Start Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo"><i class="fas fa-code"></i> MyDjango</h3>
+                    <p class="footer-description">Building amazing web applications with Django. Fast, secure, and scalable.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Silicon Valley, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyDjango. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
         
-        <button type="submit">Send Message</button>
-    </form>
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ===== NAVBAR SCROLL =====
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== FORM VALIDATION =====
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btnText = this.querySelector('.btn-text');
+            const btnLoading = this.querySelector('.btn-loading');
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                formSuccess.style.display = 'block';
+                formSuccess.style.animation = 'fadeInUp 0.6s ease';
+                
+                setTimeout(() => {
+                    form.reset();
+                }, 1000);
+                
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+
+        // ===== REAL-TIME VALIDATION =====
+        const nameInput = document.getElementById('id_name');
+        const emailInput = document.getElementById('id_email');
+        const subjectInput = document.getElementById('id_subject');
+        const messageInput = document.getElementById('id_message');
+
+        nameInput.addEventListener('blur', function() {
+            const errorDiv = document.getElementById('nameError');
+            if (this.value.length < 2) {
+                errorDiv.textContent = 'Name must be at least 2 characters';
+                this.style.borderColor = '#e74c3c';
+            } else {
+                errorDiv.textContent = '';
+                this.style.borderColor = '#27ae60';
+            }
+        });
+
+        emailInput.addEventListener('blur', function() {
+            const errorDiv = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) {
+                errorDiv.textContent = 'Please enter a valid email address';
+                this.style.borderColor = '#e74c3c';
+            } else {
+                errorDiv.textContent = '';
+                this.style.borderColor = '#27ae60';
+            }
+        });
+
+        subjectInput.addEventListener('blur', function() {
+            const errorDiv = document.getElementById('subjectError');
+            if (this.value.length < 3) {
+                errorDiv.textContent = 'Subject must be at least 3 characters';
+                this.style.borderColor = '#e74c3c';
+            } else {
+                errorDiv.textContent = '';
+                this.style.borderColor = '#27ae60';
+            }
+        });
+
+        messageInput.addEventListener('blur', function() {
+            const errorDiv = document.getElementById('messageError');
+            if (this.value.length < 10) {
+                errorDiv.textContent = 'Message must be at least 10 characters';
+                this.style.borderColor = '#e74c3c';
+            } else {
+                errorDiv.textContent = '';
+                this.style.borderColor = '#27ae60';
+            }
+        });
+
+        // ===== DYNAMIC YEAR =====
+        document.querySelector('.footer-bottom p').innerHTML = 
+            `&copy; ${new Date().getFullYear()} MyDjango. All rights reserved.`;
+    </script>
 </body>
 </html>

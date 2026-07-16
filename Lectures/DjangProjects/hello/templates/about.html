@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MyDjango</title>
+    <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo"><i class="fas fa-code"></i> MyDjango</a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/" class="active">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/contact/" class="btn-nav">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <section style="padding: 120px 20px 60px; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h1 class="section-title">Building the Future with Django</h1>
+                <p class="section-subtitle">Learn more about our mission and technology stack</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Django?</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+                        Django is a high-level Python web framework that enables rapid development 
+                        of secure and maintainable websites. Built by experienced developers, 
+                        it takes care of much of the hassle of web development, so you can focus 
+                        on writing your app without needing to reinvent the wheel.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <h4>MVC Architecture</h4>
+                            <p style="color: var(--text-light);">Clean separation of concerns</p>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
+                            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <h4>Built-in Security</h4>
+                            <p style="color: var(--text-light);">Protection from common attacks</p>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
+                            <i class="fas fa-database" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <h4>ORM Support</h4>
+                            <p style="color: var(--text-light);">Powerful database abstraction</p>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
+                            <i class="fas fa-globe" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <h4>REST API Ready</h4>
+                            <p style="color: var(--text-light);">Build modern APIs easily</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div style="background: var(--gradient); padding: 60px 40px; border-radius: var(--border-radius); color: white; text-align: center;">
+                        <i class="fas fa-rocket" style="font-size: 4rem; margin-bottom: 1.5rem;"></i>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Start?</h2>
+                        <p style="opacity: 0.9; margin-bottom: 2rem;">Join thousands of developers using Django</p>
+                        <a href="/contact/" class="btn-primary" style="background: white; color: var(--primary);">Get Started Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo"><i class="fas fa-code"></i> MyDjango</h3>
+                    <p class="footer-description">Building amazing web applications with Django.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyDjango. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
