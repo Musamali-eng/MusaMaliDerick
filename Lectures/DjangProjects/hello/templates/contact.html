@@ -35,9 +35,14 @@
     <!-- ===== CONTACT HERO ===== -->
     <section class="contact-hero">
         <div class="contact-hero-container">
-            <span class="contact-badge">
-                <i class="fas fa-headset"></i> 24/7 Support
-            </span>
+            <div class="contact-hero-badges">
+                <span class="contact-badge">
+                    <i class="fas fa-headset"></i> 24/7 Support
+                </span>
+                <span class="contact-badge status-badge">
+                    <span class="status-dot"></span> Available Now
+                </span>
+            </div>
             <h1 class="contact-hero-title">Get in <span class="gradient-text">Touch</span></h1>
             <p class="contact-hero-description">
                 Have a question, idea, or project in mind? We'd love to hear from you. 
@@ -55,6 +60,10 @@
                 <div class="hero-stat">
                     <span class="hero-stat-number">24/7</span>
                     <span class="hero-stat-label">Support Available</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4.9★</span>
+                    <span class="hero-stat-label">Average Rating</span>
                 </div>
             </div>
         </div>
@@ -74,6 +83,9 @@
                             <h4>Visit Our Office</h4>
                             <p>123 Django Street, Suite 100</p>
                             <p>Silicon Valley, CA 94025</p>
+                            <a href="https://www.google.com/maps" target="_blank" class="info-link">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
                         </div>
                     </div>
                     <div class="info-card">
@@ -84,6 +96,9 @@
                             <h4>Email Us</h4>
                             <p>info@mydjango.com</p>
                             <p>support@mydjango.com</p>
+                            <span class="info-response-time">
+                                <i class="fas fa-clock"></i> Response within 24 hours
+                            </span>
                         </div>
                     </div>
                     <div class="info-card">
@@ -92,8 +107,11 @@
                         </div>
                         <div class="info-content">
                             <h4>Call Us</h4>
-                            <p>+1 (555) 123-4567</p>
-                            <p>+1 (555) 987-6543</p>
+                            <p><strong>Main:</strong> +1 (555) 123-4567</p>
+                            <p><strong>Support:</strong> +1 (555) 987-6543</p>
+                            <span class="info-response-time">
+                                <i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM PST
+                            </span>
                         </div>
                     </div>
                     <div class="info-card">
@@ -102,8 +120,11 @@
                         </div>
                         <div class="info-content">
                             <h4>Working Hours</h4>
-                            <p><span class="day">Mon - Fri:</span> 9:00 AM - 6:00 PM</p>
-                            <p><span class="day">Sat - Sun:</span> Closed</p>
+                            <p><span class="day">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
+                            <p><span class="day">Saturday - Sunday:</span> Closed</p>
+                            <span class="info-response-time">
+                                <i class="fas fa-clock"></i> We're currently <span class="open-status">Open</span>
+                            </span>
                         </div>
                     </div>
                     <div class="social-links">
@@ -119,55 +140,175 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
+                <!-- ===== ENHANCED CONTACT FORM ===== -->
                 <div class="contact-form-wrapper">
                     <div class="form-header">
-                        <span class="form-badge">📝 Send Message</span>
-                        <h2>We'd Love to Hear From You</h2>
-                        <p>Fill out the form and we'll get back to you within 24 hours</p>
+                        <span class="form-badge">📝 Project Inquiry</span>
+                        <h2>Let's Start Your <span class="gradient-text">Project</span></h2>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
                     </div>
-                    <form method="post" class="contact-form" id="contactForm">
+                    
+                    <!-- Display Django form errors -->
+                    {% if form.errors %}
+                        <div class="form-errors">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <strong>Please fix the following errors:</strong>
+                            <ul>
+                                {% for field in form %}
+                                    {% if field.errors %}
+                                        <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    
+                    <form method="post" class="contact-form" id="contactForm" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="form-group">
-                            <label for="id_name">
-                                <i class="fas fa-user"></i> Your Name <span class="required">*</span>
-                            </label>
-                            {{ form.name }}
-                            <div class="error-message" id="nameError"></div>
-                            {% if form.name.errors %}
-                                <div class="error">{{ form.name.errors }}</div>
-                            {% endif %}
+                        
+                        <!-- ===== PERSONAL INFORMATION ===== -->
+                        <h3 class="form-section-title">
+                            <i class="fas fa-user-circle"></i> Personal Information
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="id_name">
+                                    <i class="fas fa-user"></i> Full Name <span class="required">*</span>
+                                </label>
+                                {{ form.name }}
+                                <div class="error-message" id="nameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="id_email">
+                                    <i class="fas fa-envelope"></i> Email Address <span class="required">*</span>
+                                </label>
+                                {{ form.email }}
+                                <div class="error-message" id="emailError"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="id_email">
-                                <i class="fas fa-envelope"></i> Email Address <span class="required">*</span>
-                            </label>
-                            {{ form.email }}
-                            <div class="error-message" id="emailError"></div>
-                            {% if form.email.errors %}
-                                <div class="error">{{ form.email.errors }}</div>
-                            {% endif %}
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="id_phone">
+                                    <i class="fas fa-phone"></i> Phone Number
+                                </label>
+                                {{ form.phone }}
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="id_company">
+                                    <i class="fas fa-building"></i> Company Name
+                                </label>
+                                {{ form.company }}
+                            </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="id_job_title">
+                                <i class="fas fa-briefcase"></i> Job Title
+                            </label>
+                            {{ form.job_title }}
+                        </div>
+                        
+                        <!-- ===== PROJECT DETAILS ===== -->
+                        <h3 class="form-section-title">
+                            <i class="fas fa-project-diagram"></i> Project Details
+                        </h3>
+                        
                         <div class="form-group">
                             <label for="id_subject">
                                 <i class="fas fa-tag"></i> Subject <span class="required">*</span>
                             </label>
                             {{ form.subject }}
                             <div class="error-message" id="subjectError"></div>
-                            {% if form.subject.errors %}
-                                <div class="error">{{ form.subject.errors }}</div>
-                            {% endif %}
                         </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="id_service_interest">
+                                    <i class="fas fa-cogs"></i> Service Interest
+                                </label>
+                                {{ form.service_interest }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_budget">
+                                    <i class="fas fa-dollar-sign"></i> Budget Range
+                                </label>
+                                {{ form.budget }}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="id_timeline">
+                                <i class="fas fa-clock"></i> Project Timeline
+                            </label>
+                            {{ form.timeline }}
+                        </div>
+                        
                         <div class="form-group">
                             <label for="id_message">
                                 <i class="fas fa-comment"></i> Message <span class="required">*</span>
                             </label>
                             {{ form.message }}
                             <div class="error-message" id="messageError"></div>
-                            {% if form.message.errors %}
-                                <div class="error">{{ form.message.errors }}</div>
-                            {% endif %}
                         </div>
+                        
+                        <!-- ===== ATTACHMENT ===== -->
+                        <div class="form-group file-upload">
+                            <label for="id_attachment">
+                                <i class="fas fa-paperclip"></i> Attach File (Optional)
+                            </label>
+                            <div class="file-upload-wrapper">
+                                {{ form.attachment }}
+                                <div class="file-upload-info">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Drop files here or click to upload</span>
+                                    <small>Max file size: 5MB (PDF, DOC, JPG, PNG, ZIP)</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ===== REFERRAL ===== -->
+                        <div class="form-group">
+                            <label for="id_referral">
+                                <i class="fas fa-user-plus"></i> How did you find us?
+                            </label>
+                            {{ form.referral }}
+                        </div>
+                        
+                        <!-- ===== CONSENT & PREFERENCES ===== -->
+                        <h3 class="form-section-title">
+                            <i class="fas fa-shield-alt"></i> Consent & Preferences
+                        </h3>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                {{ form.consent }}
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" target="_blank">Privacy Policy</a> 
+                                and consent to my data being stored. <span class="required">*</span>
+                            </label>
+                            <div class="error-message" id="consentError"></div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                {{ form.consent_marketing }}
+                                <span class="checkmark"></span>
+                                <i class="fas fa-envelope"></i> I agree to receive marketing communications via email
+                            </label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                {{ form.newsletter }}
+                                <span class="checkmark"></span>
+                                <i class="fas fa-newspaper"></i> Subscribe to our monthly newsletter for updates and tips
+                            </label>
+                        </div>
+                        
+                        <!-- ===== FORM ACTIONS ===== -->
                         <div class="form-actions">
                             <button type="submit" class="btn-submit" id="submitBtn">
                                 <span class="btn-text">
@@ -177,9 +318,9 @@
                                     <i class="fas fa-spinner fa-spin"></i> Sending...
                                 </span>
                             </button>
-                            <div class="form-success" id="formSuccess" style="display: none;">
-                                <i class="fas fa-check-circle"></i> Message sent successfully!
-                            </div>
+                            <p class="form-note">
+                                <i class="fas fa-lock"></i> Your information is secure and will not be shared
+                            </p>
                         </div>
                     </form>
                 </div>
@@ -187,7 +328,56 @@
         </div>
     </section>
 
-    <!-- ===== MAP SECTION WITH GOOGLE MAPS ===== -->
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-header">
+                <span class="section-tag">❓ FAQ</span>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="section-subtitle">Find answers to common questions about our services</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How quickly will I get a response?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically respond within 24 hours during business days. For urgent inquiries, please call our support line.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What services do you offer?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer web development, mobile app development, UI/UX design, cloud solutions, and technical consulting.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you offer free consultations?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a free 30-minute consultation to discuss your project requirements and how we can help.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What are your payment terms?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible payment plans. Typically, we require a 50% deposit and 50% upon completion. Contact us for custom arrangements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAP SECTION ===== -->
     <section class="map-section">
         <div class="map-container">
             <div class="map-header">
@@ -248,7 +438,7 @@
                     <h2>Ready to Build Something Amazing?</h2>
                     <p>Let's turn your idea into reality with Django.</p>
                 </div>
-                <a href="/contact/" class="btn-primary cta-simple-btn">
+                <a href="#" class="btn-primary cta-simple-btn">
                     <i class="fas fa-rocket"></i> Start Your Project
                 </a>
             </div>
@@ -351,92 +541,145 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ===== FORM VALIDATION =====
+        // ===== FORM SUBMISSION =====
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
-        const formSuccess = document.getElementById('formSuccess');
 
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const btnText = this.querySelector('.btn-text');
             const btnLoading = this.querySelector('.btn-loading');
             btnText.style.display = 'none';
             btnLoading.style.display = 'inline';
             submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
-                submitBtn.disabled = false;
-                
-                formSuccess.style.display = 'block';
-                formSuccess.style.animation = 'fadeInUp 0.6s ease';
-                
-                setTimeout(() => {
-                    form.reset();
-                }, 1000);
-                
-                setTimeout(() => {
-                    formSuccess.style.display = 'none';
-                }, 5000);
-            }, 2000);
         });
 
         // ===== REAL-TIME VALIDATION =====
-        const nameInput = document.getElementById('id_name');
-        const emailInput = document.getElementById('id_email');
-        const subjectInput = document.getElementById('id_subject');
-        const messageInput = document.getElementById('id_message');
+        const validateField = (input, errorId, validationFn, errorMsg) => {
+            if (!input) return;
+            input.addEventListener('blur', function() {
+                const errorDiv = document.getElementById(errorId);
+                if (errorDiv) {
+                    if (!validationFn(this.value)) {
+                        errorDiv.textContent = errorMsg;
+                        this.style.borderColor = '#e74c3c';
+                    } else {
+                        errorDiv.textContent = '';
+                        this.style.borderColor = '#27ae60';
+                    }
+                }
+            });
+        };
 
-        nameInput.addEventListener('blur', function() {
-            const errorDiv = document.getElementById('nameError');
-            if (this.value.length < 2) {
-                errorDiv.textContent = 'Name must be at least 2 characters';
-                this.style.borderColor = '#e74c3c';
-            } else {
-                errorDiv.textContent = '';
-                this.style.borderColor = '#27ae60';
-            }
-        });
+        validateField(
+            document.getElementById('id_name'),
+            'nameError',
+            (val) => val && val.length >= 2,
+            'Name must be at least 2 characters'
+        );
 
-        emailInput.addEventListener('blur', function() {
-            const errorDiv = document.getElementById('emailError');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(this.value)) {
-                errorDiv.textContent = 'Please enter a valid email address';
-                this.style.borderColor = '#e74c3c';
-            } else {
-                errorDiv.textContent = '';
-                this.style.borderColor = '#27ae60';
-            }
-        });
+        validateField(
+            document.getElementById('id_email'),
+            'emailError',
+            (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+            'Please enter a valid email address'
+        );
 
-        subjectInput.addEventListener('blur', function() {
-            const errorDiv = document.getElementById('subjectError');
-            if (this.value.length < 3) {
-                errorDiv.textContent = 'Subject must be at least 3 characters';
-                this.style.borderColor = '#e74c3c';
-            } else {
-                errorDiv.textContent = '';
-                this.style.borderColor = '#27ae60';
-            }
-        });
+        validateField(
+            document.getElementById('id_subject'),
+            'subjectError',
+            (val) => val && val !== '',
+            'Please select a subject'
+        );
 
-        messageInput.addEventListener('blur', function() {
-            const errorDiv = document.getElementById('messageError');
-            if (this.value.length < 10) {
-                errorDiv.textContent = 'Message must be at least 10 characters';
-                this.style.borderColor = '#e74c3c';
-            } else {
-                errorDiv.textContent = '';
-                this.style.borderColor = '#27ae60';
-            }
+        validateField(
+            document.getElementById('id_message'),
+            'messageError',
+            (val) => val && val.length >= 10,
+            'Message must be at least 10 characters'
+        );
+
+        // ===== PHONE VALIDATION =====
+        const phoneInput = document.getElementById('id_phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('blur', function() {
+                const errorDiv = document.getElementById('phoneError');
+                if (this.value && this.value.length < 10) {
+                    errorDiv.textContent = 'Please enter a valid phone number (min 10 digits)';
+                    this.style.borderColor = '#e74c3c';
+                } else {
+                    errorDiv.textContent = '';
+                    this.style.borderColor = '#27ae60';
+                }
+            });
+        }
+
+        // ===== CONSENT VALIDATION =====
+        const consentInput = document.getElementById('id_consent');
+        if (consentInput) {
+            consentInput.addEventListener('change', function() {
+                const errorDiv = document.getElementById('consentError');
+                if (!this.checked) {
+                    errorDiv.textContent = 'You must agree to the Privacy Policy';
+                } else {
+                    errorDiv.textContent = '';
+                }
+            });
+        }
+
+        // ===== FILE UPLOAD VISUAL FEEDBACK =====
+        const fileInput = document.getElementById('id_attachment');
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                const infoDiv = this.parentElement.querySelector('.file-upload-info');
+                if (this.files.length > 0) {
+                    const file = this.files[0];
+                    const fileSize = (file.size / 1024).toFixed(1);
+                    infoDiv.innerHTML = `
+                        <i class="fas fa-file"></i>
+                        <span>${file.name}</span>
+                        <small>${fileSize} KB</small>
+                    `;
+                } else {
+                    infoDiv.innerHTML = `
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Drop files here or click to upload</span>
+                        <small>Max file size: 5MB (PDF, DOC, JPG, PNG, ZIP)</small>
+                    `;
+                }
+            });
+        }
+
+        // ===== FAQ TOGGLE =====
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const toggle = this.querySelector('.faq-toggle i');
+                
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = '0';
+                    if (toggle) toggle.className = 'fas fa-plus';
+                } else {
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('active');
+                        const ans = i.querySelector('.faq-answer');
+                        const tog = i.querySelector('.faq-toggle i');
+                        if (ans) ans.style.maxHeight = '0';
+                        if (tog) tog.className = 'fas fa-plus';
+                    });
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    if (toggle) toggle.className = 'fas fa-minus';
+                }
+            });
         });
 
         // ===== DYNAMIC YEAR =====
-        document.querySelector('.footer-bottom p').innerHTML = 
-            `&copy; ${new Date().getFullYear()} MyDjango. All rights reserved.`;
+        const footerYear = document.querySelector('.footer-bottom p');
+        if (footerYear) {
+            footerYear.innerHTML = `&copy; ${new Date().getFullYear()} MyDjango. All rights reserved.`;
+        }
     </script>
 </body>
 </html>

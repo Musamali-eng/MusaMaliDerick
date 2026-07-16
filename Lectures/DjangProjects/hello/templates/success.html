@@ -4,42 +4,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success - Django Project</title>
+    <title>Success - MyDjango</title>
     <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">MyDjango</a>
-            <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/contact/">Contact</a></li>
+            <a href="/" class="nav-logo"><i class="fas fa-code"></i> MyDjango</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" {% if page == 'home' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="/about/" {% if page == 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="/contact/" {% if page == 'contact' or page == 'success' %}class="active"{% endif %}>Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <a href="/contact/" class="btn-nav">Get Started</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div class="page-content">
-        <h1 class="page-title">✅ Success!</h1>
-        
-        <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; max-width: 600px; margin: 0 auto;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
-            <h2 style="color: #27ae60; margin-bottom: 15px;">Thank You!</h2>
-            <p style="font-size: 1.2rem; color: #555; line-height: 1.8;">
-                Thank you <strong>{{ name }}</strong>! Your message has been sent successfully.
-            </p>
-            <p style="color: #777; margin: 20px 0;">
-                We'll get back to you as soon as possible.
-            </p>
-            <div style="margin-top: 30px;">
-                <a href="/contact/" class="btn btn-primary">Send Another Message</a>
-                <a href="/" class="btn btn-secondary" style="margin-left: 10px;">Go Home</a>
+    <!-- ===== SUCCESS CONTENT ===== -->
+    <section class="success-section">
+        <div class="success-container">
+            <div class="success-card">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1 class="success-title">Thank You! 🎉</h1>
+                <p class="success-subtitle">Your message has been sent successfully</p>
+                
+                <!-- Success Details -->
+                <div class="success-details">
+                    <div class="success-details-grid">
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span><strong>Name:</strong> {{ name }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>Email:</strong> {{ email }}</span>
+                        </div>
+                        {% if phone and phone != 'Not provided' %}
+                        <div class="detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span><strong>Phone:</strong> {{ phone }}</span>
+                        </div>
+                        {% endif %}
+                        {% if company and company != 'Not provided' %}
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <span><strong>Company:</strong> {{ company }}</span>
+                        </div>
+                        {% endif %}
+                        {% if job_title and job_title != 'Not provided' %}
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span><strong>Job Title:</strong> {{ job_title }}</span>
+                        </div>
+                        {% endif %}
+                        <div class="detail-item">
+                            <i class="fas fa-tag"></i>
+                            <span><strong>Subject:</strong> {{ subject }}</span>
+                        </div>
+                        {% if service and service != 'Not specified' %}
+                        <div class="detail-item">
+                            <i class="fas fa-cogs"></i>
+                            <span><strong>Service:</strong> {{ service }}</span>
+                        </div>
+                        {% endif %}
+                        {% if budget and budget != 'Not specified' %}
+                        <div class="detail-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span><strong>Budget:</strong> {{ budget }}</span>
+                        </div>
+                        {% endif %}
+                        {% if timeline and timeline != 'Not specified' %}
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Timeline:</strong> {{ timeline }}</span>
+                        </div>
+                        {% endif %}
+                        {% if referral and referral != 'Not specified' %}
+                        <div class="detail-item">
+                            <i class="fas fa-user-plus"></i>
+                            <span><strong>How found us:</strong> {{ referral }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Success Message -->
+                <div class="success-message">
+                    <p><i class="fas fa-clock"></i> We'll get back to you within 24 hours.</p>
+                    {% if newsletter %}
+                    <p class="newsletter-confirm">
+                        <i class="fas fa-check-circle"></i> You're now subscribed to our newsletter!
+                    </p>
+                    {% endif %}
+                    {% if consent_marketing %}
+                    <p class="marketing-confirm">
+                        <i class="fas fa-check-circle"></i> You'll receive marketing communications via email.
+                    </p>
+                    {% endif %}
+                </div>
+                
+                <!-- Success Actions -->
+                <div class="success-actions">
+                    <a href="/contact/" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Another Message
+                    </a>
+                    <a href="/" class="btn-secondary">
+                        <i class="fas fa-home"></i> Go Home
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- ===== FOOTER ===== -->
     <footer class="footer" style="margin-top: 60px;">
-        <p>&copy; 2026 My Django Project. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo"><i class="fas fa-code"></i> MyDjango</h3>
+                    <p class="footer-description">Building amazing web applications with Django.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Silicon Valley, CA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MyDjango. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Dynamic Year
+        document.querySelector('.footer-bottom p').innerHTML = 
+            `&copy; ${new Date().getFullYear()} MyDjango. All rights reserved.`;
+    </script>
 </body>
 </html>
