@@ -2531,3 +2531,18 @@ body {
         gap: 0;
     }
 }
+
+/* ===== RECAPTCHA ===== */
+.recaptcha-group {
+    margin: 1.5rem 0;
+}
+
+.recaptcha-group .g-recaptcha {
+    display: flex;
+    justify-content: center;
+}
+
+.recaptcha-group .error-message {
+    text-align: center;
+    margin-top: 0.5rem;
+}

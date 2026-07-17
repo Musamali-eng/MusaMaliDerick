@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+    'hello',
+    'django_recaptcha',
 ]
+
+RECAPTCHA_PUBLIC_KEY = '6LdZY1gtAAAAADvpziPYz-YQUgxk3FFuPSJWTAQu'
+RECAPTCHA_PRIVATE_KEY = '6LdZY1gtAAAAAC8xj-fYcpWljktTUdpTagzMApmY'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -112,7 +116,27 @@ USE_I18N = True
 
 USE_TZ = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ===== EMAIL CONFIGURATION =====
+# Choose ONE of the following options:
+
+# Option 1: Console (Development - prints emails to terminal)
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Option 2: Gmail SMTP (Production - sends real emails via Gmail)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your-email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your-app-password'  # Use App Password, not regular password!
+# DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
+
+# Option 3: SendGrid (Production - recommended for high volume)
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+SENDGRID_API_KEY = 'your-sendgrid-api-key'
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False  # Set to True for testing
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/

@@ -16,3 +16,17 @@
 #Is an HTML file that also includes css, javascript e.t.c
 #They help to render data from viewsinclude the HTML structure
 #User input and form 
+#databases in Django
+#SQLite
+#Best for learning and small project
+#No installation
+#Limited scalability
+#POSTGRESQL
+#Best production
+#MYSQL
+#Popular
+#ORACLE
+#Enterprise -grade, secure
+
+#WHy POSTGRESQL
+#Excellent django integration ,securtiy performance and scalabilty

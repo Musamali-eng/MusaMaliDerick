@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import FileExtensionValidator
+from django_recaptcha.fields import ReCaptchaField
 
 # Subject Choices
 SUBJECT_CHOICES = [
@@ -50,17 +51,18 @@ REFERRAL_CHOICES = [
     ('other', 'Other'),
 ]
 
+
 class ContactForm(forms.Form):
     # ===== PERSONAL INFORMATION =====
     name = forms.CharField(
-        max_length=100, 
+        max_length=100,
         label='Full Name',
         widget=forms.TextInput(attrs={
             'placeholder': 'Enter your full name',
             'class': 'form-control'
         })
     )
-    
+
     email = forms.EmailField(
         label='Email Address',
         widget=forms.EmailInput(attrs={
@@ -68,9 +70,9 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     phone = forms.CharField(
-        max_length=20, 
+        max_length=20,
         label='Phone Number',
         required=False,
         widget=forms.TextInput(attrs={
@@ -78,7 +80,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     company = forms.CharField(
         max_length=100,
         label='Company Name',
@@ -88,7 +90,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     job_title = forms.CharField(
         max_length=100,
         label='Job Title',
@@ -98,7 +100,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     # ===== PROJECT INFORMATION =====
     subject = forms.ChoiceField(
         choices=SUBJECT_CHOICES,
@@ -107,7 +109,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     service_interest = forms.ChoiceField(
         choices=SERVICE_CHOICES,
         label='Service Interest',
@@ -116,7 +118,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     budget = forms.ChoiceField(
         choices=BUDGET_CHOICES,
         label='Budget Range',
@@ -125,7 +127,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     timeline = forms.CharField(
         max_length=100,
         label='Project Timeline',
@@ -135,7 +137,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     message = forms.CharField(
         widget=forms.Textarea(attrs={
             'placeholder': 'Tell us about your project, goals, and how we can help...',
@@ -144,7 +146,7 @@ class ContactForm(forms.Form):
         }),
         label='Message'
     )
-    
+
     # ===== ATTACHMENTS =====
     attachment = forms.FileField(
         required=False,
@@ -157,7 +159,7 @@ class ContactForm(forms.Form):
             'accept': '.pdf,.doc,.docx,.jpg,.jpeg,.png,.txt,.zip'
         })
     )
-    
+
     # ===== REFERRAL =====
     referral = forms.ChoiceField(
         choices=REFERRAL_CHOICES,
@@ -167,7 +169,7 @@ class ContactForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
+
     # ===== CONSENT & PREFERENCES =====
     consent = forms.BooleanField(
         required=True,
@@ -176,7 +178,7 @@ class ContactForm(forms.Form):
             'class': 'form-checkbox'
         })
     )
-    
+
     consent_marketing = forms.BooleanField(
         required=False,
         label='I agree to receive marketing communications via email',
@@ -184,7 +186,7 @@ class ContactForm(forms.Form):
             'class': 'form-checkbox'
         })
     )
-    
+
     newsletter = forms.BooleanField(
         required=False,
         label='Subscribe to our monthly newsletter for updates and tips',
@@ -192,14 +194,17 @@ class ContactForm(forms.Form):
             'class': 'form-checkbox'
         })
     )
-    
+
+    # ===== RECAPTCHA =====
+    captcha = ReCaptchaField()
+
     # ===== VALIDATION =====
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
         if phone and len(phone) < 10:
             raise forms.ValidationError("Please enter a valid phone number with at least 10 digits.")
         return phone
-    
+
     def clean_message(self):
         message = self.cleaned_data.get('message')
         if len(message) < 20:

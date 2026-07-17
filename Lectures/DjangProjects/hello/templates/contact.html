@@ -17,9 +17,9 @@
                 <i class="fas fa-code"></i> MyDjango
             </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/contact/" class="active">Contact</a></li>
+                <li><a href="/" {% if page == 'home' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="/about/" {% if page == 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="/contact/" {% if page == 'contact' %}class="active"{% endif %}>Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="/contact/" class="btn-nav">Get Started</a>
@@ -81,9 +81,8 @@
                         </div>
                         <div class="info-content">
                             <h4>Visit Our Office</h4>
-                            <p>123 Django Street, Suite 100</p>
-                            <p>Silicon Valley, CA 94025</p>
-                            <a href="https://www.google.com/maps" target="_blank" class="info-link">
+                            <p>Mbuya, Kampala, Uganda</p>
+                            <a href="https://www.google.com/maps?q=8JPJ%2B6P9+Kampala" target="_blank" class="info-link">
                                 <i class="fas fa-directions"></i> Get Directions
                             </a>
                         </div>
@@ -308,6 +307,14 @@
                             </label>
                         </div>
                         
+                        <!-- ===== RECAPTCHA ===== -->
+                        <div class="form-group recaptcha-group">
+                            {{ form.captcha }}
+                            {% if form.captcha.errors %}
+                                <div class="error-message">{{ form.captcha.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
                         <!-- ===== FORM ACTIONS ===== -->
                         <div class="form-actions">
                             <button type="submit" class="btn-submit" id="submitBtn">
@@ -377,57 +384,60 @@
         </div>
     </section>
 
+    <!-- ===== MAP SECTION WITH MBUYA LOCATION ===== -->
+    
+
     <!-- ===== MAP SECTION ===== -->
-    <section class="map-section">
-        <div class="map-container">
-            <div class="map-header">
-                <span class="map-badge">📍 Find Us</span>
-                <h2 class="map-title">Visit Our <span class="gradient-text">Location</span></h2>
-                <p class="map-subtitle">We're located in the heart of Silicon Valley</p>
-            </div>
-            <div class="map-wrapper">
-                <div class="map-card">
-                    <div class="map-responsive">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.556482274812!2d-122.08385168469184!3d37.42206597982443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c6661937e0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                            width="100%" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Google Map Location">
-                        </iframe>
-                    </div>
-                    <div class="map-info-overlay">
-                        <div class="map-info-content">
-                            <div class="map-info-left">
-                                <div class="map-info-icon">
-                                    <i class="fas fa-location-dot"></i>
-                                </div>
-                                <div class="map-info-text">
-                                    <h4>MyDjango Headquarters</h4>
-                                    <p>123 Django Street, Suite 100<br>Silicon Valley, CA 94025</p>
-                                </div>
+<section class="map-section">
+    <div class="map-container">
+        <div class="map-header">
+            <span class="map-badge">📍 Find Us</span>
+            <h2 class="map-title">Visit Our <span class="gradient-text">Location</span></h2>
+            <p class="map-subtitle">We're located along Odongo Rd, Kampala</p>
+        </div>
+        <div class="map-wrapper">
+            <div class="map-card">
+                <div class="map-responsive">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.743783696214!2d32.6069!3d0.3229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMjIuNCJOIDMywrAzNicyMC4yIkU!5e0!3m2!1sen!2s!4v1700000000000" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Odongo Rd, Kampala Location">
+                    </iframe>
+                </div>
+                <div class="map-info-overlay">
+                    <div class="map-info-content">
+                        <div class="map-info-left">
+                            <div class="map-info-icon">
+                                <i class="fas fa-location-dot"></i>
                             </div>
-                            <div class="map-info-right">
-                                <a href="https://www.google.com/maps/dir//Googleplex,+1600+Amphitheatre+Parkway,+Mountain+View,+CA+94043" 
-                                   target="_blank" 
-                                   class="btn-map-primary">
-                                    <i class="fas fa-directions"></i> Get Directions
-                                </a>
-                                <a href="https://www.google.com/maps/place/Googleplex/@37.4220659,-122.0838517,17z/data=!3m1!4b1!4m5!3m4!1s0x808fba02425dad8f:0x6c296c6661937e0!8m2!3d37.4220659!4d-122.0838517" 
-                                   target="_blank" 
-                                   class="btn-map-secondary">
-                                    <i class="fas fa-expand"></i> View Larger Map
-                                </a>
+                            <div class="map-info-text">
+                                <h4>MyDjango Headquarters</h4>
+                                <p>Odongo Rd, Kampala, Uganda</p>
                             </div>
+                        </div>
+                        <div class="map-info-right">
+                            <a href="https://www.google.com/maps/dir//Odongo+Rd,+Kampala" 
+                               target="_blank" 
+                               class="btn-map-primary">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
+                            <a href="https://www.google.com/maps/place/Odongo+Rd,+Kampala" 
+                               target="_blank" 
+                               class="btn-map-secondary">
+                                <i class="fas fa-expand"></i> View Larger Map
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== CTA SECTION ===== -->
     <section class="cta-simple">
@@ -480,7 +490,7 @@
                     <ul>
                         <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
                         <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Silicon Valley, CA</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mbuya, Kampala, Uganda</li>
                     </ul>
                 </div>
             </div>
