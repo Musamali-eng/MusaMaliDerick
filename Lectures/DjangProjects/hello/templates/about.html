@@ -4,86 +4,784 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - MyDjango</title>
+    <title>About - MusaMali Derick Enterprises</title>
+    <meta name="description" content="MusaMali Derick Enterprises is a multidisciplinary creative and technology company providing innovative digital solutions, professional media production, engineering fabrication, and custom software development.">
+    <meta property="og:title" content="About - MusaMali Derick Enterprises">
+    <meta property="og:description" content="Creative & Technology Solutions Provider">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://musamaliderick.com/about/">
     <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar" id="navbar">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar premium-nav" id="navbar" role="navigation">
         <div class="nav-container">
-            <a href="/" class="nav-logo"><i class="fas fa-code"></i> MyDjango</a>
-            <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/" class="active">About</a></li>
-                <li><a href="/contact/">Contact</a></li>
+            <a href="/" class="nav-logo premium-logo">
+                <i class="fas fa-crown"></i> MusaMali Derick
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" {% if page == 'home' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{% url 'about' %}" {% if page == 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="{% url 'contact' %}" {% if page == 'contact' or page == 'success' %}class="active"{% endif %}>Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="/contact/" class="btn-nav">Get Started</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="{% url 'contact' %}" class="btn-nav">Get Started</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section style="padding: 120px 20px 60px; background: white;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-header">
-                <span class="section-tag">About Us</span>
-                <h1 class="section-title">Building the Future with Django</h1>
-                <p class="section-subtitle">Learn more about our mission and technology stack</p>
+    <!-- ============================================================
+    HERO SECTION - ENHANCED
+    ============================================================ -->
+    <section class="hero-premium about-hero-enhanced" aria-label="Hero">
+        <div class="hero-blur hero-blur-1"></div>
+        <div class="hero-blur hero-blur-2"></div>
+        <div class="hero-blur hero-blur-3"></div>
+        <div class="hero-premium-container">
+            <div class="hero-premium-content">
+                <span class="hero-badge-premium">✨ Since 2020</span>
+                <h1 class="hero-title-premium">
+                    Empowering Businesses Through<br>
+                    <span class="gradient-text">Creative Media, Technology,</span><br>
+                    and Innovative Digital Solutions
+                </h1>
+                <p class="hero-description-premium">
+                    MusaMali Derick Enterprises is a multidisciplinary creative and technology company 
+                    dedicated to helping individuals, businesses, organizations, and institutions grow 
+                    through innovative digital solutions, professional media production, engineering 
+                    fabrication, and custom software development.
+                </p>
+                <div class="hero-trust-badges">
+                    <span><i class="fas fa-check-circle"></i> Trusted by Businesses</span>
+                    <span><i class="fas fa-check-circle"></i> Fast Delivery</span>
+                    <span><i class="fas fa-check-circle"></i> Professional Support</span>
+                    <span><i class="fas fa-check-circle"></i> Quality Guaranteed</span>
+                </div>
+                <div class="hero-buttons-premium">
+                    <a href="{% url 'contact' %}" class="btn-primary btn-premium">
+                        <i class="fas fa-paper-plane"></i> Request a Free Quote
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-secondary btn-premium-outline">
+                        <i class="fas fa-calendar-check"></i> Schedule a Consultation
+                    </a>
+                </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-                <div>
-                    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Django?</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
-                        Django is a high-level Python web framework that enables rapid development 
-                        of secure and maintainable websites. Built by experienced developers, 
-                        it takes care of much of the hassle of web development, so you can focus 
-                        on writing your app without needing to reinvent the wheel.
+            <div class="hero-premium-visual">
+                <div class="hero-visual-card-premium">
+                    <div class="visual-card-header">
+                        <i class="fas fa-crown"></i>
+                        <span>MusaMali Derick</span>
+                    </div>
+                    <div class="visual-card-body">
+                        <div class="visual-stat">
+                            <span class="visual-number">120+</span>
+                            <span class="visual-label">Projects</span>
+                        </div>
+                        <div class="visual-stat">
+                            <span class="visual-number">85+</span>
+                            <span class="visual-label">Clients</span>
+                        </div>
+                        <div class="visual-stat">
+                            <span class="visual-number">98%</span>
+                            <span class="visual-label">Satisfaction</span>
+                        </div>
+                    </div>
+                    <div class="visual-card-footer">
+                        <span><i class="fas fa-check-circle"></i> Trusted Worldwide</span>
+                    </div>
+                </div>
+                <div class="floating-icon fi-1"><i class="fas fa-camera"></i></div>
+                <div class="floating-icon fi-2"><i class="fas fa-palette"></i></div>
+                <div class="floating-icon fi-3"><i class="fas fa-tractor"></i></div>
+                <div class="floating-icon fi-4"><i class="fas fa-code"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STORY SECTION - ENHANCED
+    ============================================================ -->
+    <section class="story-premium section-reveal" id="story">
+        <div class="story-premium-container">
+            <div class="story-premium-grid">
+                <div class="story-premium-content">
+                    <span class="story-tag-premium">📖 Our Story</span>
+                    <h2 class="story-title-premium">
+                        From Passion to <span class="gradient-text">Purpose</span>
+                    </h2>
+                    <p class="story-text-premium">
+                        MusaMali Derick Enterprises was founded with a simple vision—to bridge creativity 
+                        and technology in solving real-world challenges. What started as a passion for 
+                        photography and design has evolved into a multidisciplinary company providing 
+                        professional media production, software development, engineering fabrication, 
+                        branding, and digital transformation services.
                     </p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-                            <i class="fas fa-check-circle" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                            <h4>MVC Architecture</h4>
-                            <p style="color: var(--text-light);">Clean separation of concerns</p>
+                    <p class="story-text-premium">
+                        Today, we proudly serve businesses, institutions, farmers, entrepreneurs, and 
+                        organizations by delivering reliable, innovative, and high-quality solutions 
+                        tailored to their needs.
+                    </p>
+                    <div class="story-highlights-enhanced">
+                        <div class="highlight-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Innovation-Driven</span>
                         </div>
-                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-                            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                            <h4>Built-in Security</h4>
-                            <p style="color: var(--text-light);">Protection from common attacks</p>
+                        <div class="highlight-item">
+                            <i class="fas fa-users"></i>
+                            <span>Client-Focused</span>
                         </div>
-                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-                            <i class="fas fa-database" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                            <h4>ORM Support</h4>
-                            <p style="color: var(--text-light);">Powerful database abstraction</p>
-                        </div>
-                        <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px;">
-                            <i class="fas fa-globe" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-                            <h4>REST API Ready</h4>
-                            <p style="color: var(--text-light);">Build modern APIs easily</p>
+                        <div class="highlight-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Excellence Guaranteed</span>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div style="background: var(--gradient); padding: 60px 40px; border-radius: var(--border-radius); color: white; text-align: center;">
-                        <i class="fas fa-rocket" style="font-size: 4rem; margin-bottom: 1.5rem;"></i>
-                        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Start?</h2>
-                        <p style="opacity: 0.9; margin-bottom: 2rem;">Join thousands of developers using Django</p>
-                        <a href="/contact/" class="btn-primary" style="background: white; color: var(--primary);">Get Started Today</a>
+                <div class="story-timeline-premium">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2020</span>
+                            <span class="timeline-text">Founded in Kampala</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2022</span>
+                            <span class="timeline-text">Expanded to 5 Services</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2024</span>
+                            <span class="timeline-text">120+ Projects Delivered</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot timeline-dot-last"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2026</span>
+                            <span class="timeline-text">Growing & Expanding</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ============================================================
+    WHY CHOOSE US - ENHANCED
+    ============================================================ -->
+    <section class="why-premium section-reveal">
+        <div class="why-premium-container">
+            <div class="why-header-premium">
+                <span class="why-tag-premium">⭐ Why Choose Us</span>
+                <h2 class="why-title-premium">
+                    Why Choose <span class="gradient-text">MusaMali Derick Enterprises?</span>
+                </h2>
+                <p class="why-subtitle-premium">We deliver excellence through innovation, expertise, and dedication</p>
+            </div>
+            <div class="why-grid-premium">
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-users"></i></div>
+                    <h4>Experienced Professionals</h4>
+                    <p>Skilled and dedicated team with years of expertise</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-heart"></i></div>
+                    <h4>Customer-First Approach</h4>
+                    <p>Your satisfaction is our top priority</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Innovative Solutions</h4>
+                    <p>Creative problem-solving with modern technology</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-tag"></i></div>
+                    <h4>Affordable Pricing</h4>
+                    <p>Transparent and competitive rates</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-clock"></i></div>
+                    <h4>On-Time Delivery</h4>
+                    <p>We respect your deadlines</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-tools"></i></div>
+                    <h4>Modern Technology</h4>
+                    <p>Latest equipment and software</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-headset"></i></div>
+                    <h4>Continuous Support</h4>
+                    <p>Ongoing assistance after project completion</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-check-double"></i></div>
+                    <h4>Quality Workmanship</h4>
+                    <p>Exceptional quality in every project</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-cog"></i></div>
+                    <h4>Customized Solutions</h4>
+                    <p>Tailored to your specific needs</p>
+                </div>
+                <div class="why-item-premium">
+                    <div class="why-icon-circle"><i class="fas fa-star"></i></div>
+                    <h4>Trusted by Clients</h4>
+                    <p>Proven track record of satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CORE VALUES - ENHANCED
+    ============================================================ -->
+    <section class="values-premium section-reveal">
+        <div class="values-premium-container">
+            <div class="values-header-premium">
+                <span class="values-tag-premium">💎 Core Values</span>
+                <h2 class="values-title-premium">
+                    What <span class="gradient-text">We Stand For</span>
+                </h2>
+                <p class="values-subtitle-premium">The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid-premium">
+                <div class="value-card-premium icon-red">
+                    <div class="value-icon-premium"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation</h3>
+                    <p>We continuously explore new ideas and technologies to provide modern and effective solutions.</p>
+                </div>
+                <div class="value-card-premium icon-purple">
+                    <div class="value-icon-premium"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Integrity</h3>
+                    <p>We conduct every project with honesty, transparency, and professionalism.</p>
+                </div>
+                <div class="value-card-premium icon-blue">
+                    <div class="value-icon-premium"><i class="fas fa-trophy"></i></div>
+                    <h3>Excellence</h3>
+                    <p>We strive to exceed expectations through exceptional quality and attention to detail.</p>
+                </div>
+                <div class="value-card-premium icon-green">
+                    <div class="value-icon-premium"><i class="fas fa-smile"></i></div>
+                    <h3>Customer Satisfaction</h3>
+                    <p>Our clients are at the center of every decision we make.</p>
+                </div>
+                <div class="value-card-premium icon-gold">
+                    <div class="value-icon-premium"><i class="fas fa-handshake"></i></div>
+                    <h3>Teamwork</h3>
+                    <p>We believe collaboration produces outstanding results.</p>
+                </div>
+                <div class="value-card-premium icon-indigo">
+                    <div class="value-icon-premium"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Continuous Learning</h3>
+                    <p>We constantly improve our knowledge, skills, and services.</p>
+                </div>
+                <div class="value-card-premium icon-coral">
+                    <div class="value-icon-premium"><i class="fas fa-globe-africa"></i></div>
+                    <h3>Community Impact</h3>
+                    <p>We create solutions that positively contribute to society.</p>
+                </div>
+                <div class="value-card-premium icon-teal">
+                    <div class="value-icon-premium"><i class="fas fa-leaf"></i></div>
+                    <h3>Sustainability</h3>
+                    <p>We embrace environmentally responsible practices wherever possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    MISSION & VISION - ENHANCED
+    ============================================================ -->
+    <section class="mission-vision-premium section-reveal">
+        <div class="mission-vision-premium-container">
+            <div class="mission-vision-grid">
+                <div class="mission-card-premium">
+                    <div class="mission-icon-premium icon-red"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver innovative, reliable, and affordable creative and technology solutions that empower businesses, organizations, and individuals to achieve sustainable growth while creating lasting value for our communities.</p>
+                    <div class="mission-tag">Driving Impact</div>
+                </div>
+                <div class="vision-card-premium">
+                    <div class="vision-icon-premium icon-purple"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To become one of Africa's leading creative and technology companies, recognized for excellence, innovation, integrity, and transformative solutions that inspire progress across industries.</p>
+                    <div class="vision-tag">Leading the Future</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SERVICES - ENHANCED
+    ============================================================ -->
+    <section class="services-premium section-reveal">
+        <div class="services-premium-container">
+            <div class="services-header-premium">
+                <span class="services-tag-premium">🚀 Our Services</span>
+                <h2 class="services-title-premium">
+                    What <span class="gradient-text">We Offer</span>
+                </h2>
+                <p class="services-subtitle-premium">Comprehensive solutions across five key disciplines</p>
+            </div>
+            <div class="services-grid-premium">
+                <div class="service-card-premium icon-red">
+                    <div class="service-icon-premium"><i class="fas fa-camera"></i></div>
+                    <h3>Photography</h3>
+                    <p>Professional photography for events, portraits, and commercial shoots.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Weddings & Events</li>
+                        <li><i class="fas fa-check"></i> Corporate & Product</li>
+                        <li><i class="fas fa-check"></i> Drone & Real Estate</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card-premium icon-purple">
+                    <div class="service-icon-premium"><i class="fas fa-palette"></i></div>
+                    <h3>Graphic Design</h3>
+                    <p>Branding, logos, posters, flyers, and digital media design.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Brand Identity & Logos</li>
+                        <li><i class="fas fa-check"></i> Social Media Graphics</li>
+                        <li><i class="fas fa-check"></i> Business Cards & Packaging</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card-premium icon-blue">
+                    <div class="service-icon-premium"><i class="fas fa-video"></i></div>
+                    <h3>Videography</h3>
+                    <p>Video production for documentaries, weddings, events, and promos.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Weddings & Events</li>
+                        <li><i class="fas fa-check"></i> Commercials & Corporate</li>
+                        <li><i class="fas fa-check"></i> Documentaries & Music Videos</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card-premium icon-gold">
+                    <div class="service-icon-premium"><i class="fas fa-tractor"></i></div>
+                    <h3>Fabrication</h3>
+                    <p>Tractors, cow houses, farm equipment, and agricultural solutions.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Farm Equipment & Tractors</li>
+                        <li><i class="fas fa-check"></i> Cow Houses & Poultry</li>
+                        <li><i class="fas fa-check"></i> Metal Fabrication & Welding</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card-premium icon-teal">
+                    <div class="service-icon-premium"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Web applications, websites, and digital platforms built with modern tech.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Company Websites & E-Commerce</li>
+                        <li><i class="fas fa-check"></i> School & Hospital Systems</li>
+                        <li><i class="fas fa-check"></i> Management Systems & APIs</li>
+                    </ul>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PROCESS - ENHANCED
+    ============================================================ -->
+    <section class="process-premium section-reveal">
+        <div class="process-premium-container">
+            <div class="process-header-premium">
+                <span class="process-tag-premium">📋 Our Process</span>
+                <h2 class="process-title-premium">
+                    How We <span class="gradient-text">Work</span>
+                </h2>
+                <p class="process-subtitle-premium">Our step-by-step approach to delivering excellence</p>
+            </div>
+            <div class="process-timeline-premium">
+                <div class="process-step-premium">
+                    <div class="process-number">01</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-comments"></i></div>
+                    <h3>Consultation</h3>
+                    <p>We understand your goals and requirements.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step-premium">
+                    <div class="process-number">02</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-pen-fancy"></i></div>
+                    <h3>Planning</h3>
+                    <p>We develop the best strategy for your project.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step-premium">
+                    <div class="process-number">03</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Design</h3>
+                    <p>Our experts create professional concepts.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step-premium">
+                    <div class="process-number">04</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-code"></i></div>
+                    <h3>Development</h3>
+                    <p>We build and implement your solution.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step-premium">
+                    <div class="process-number">05</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-check-double"></i></div>
+                    <h3>Testing</h3>
+                    <p>We ensure quality before delivery.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step-premium">
+                    <div class="process-number">06</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-rocket"></i></div>
+                    <h3>Delivery</h3>
+                    <p>Project handover and training.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step-premium">
+                    <div class="process-number">07</div>
+                    <div class="process-icon-wrapper"><i class="fas fa-headset"></i></div>
+                    <h3>Support</h3>
+                    <p>Continuous maintenance and assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TEAM - ENHANCED
+    ============================================================ -->
+    <section class="team-premium section-reveal" id="team">
+        <div class="team-premium-container">
+            <div class="team-header-premium">
+                <span class="team-tag-premium">👥 Our Team</span>
+                <h2 class="team-title-premium">
+                    Meet the <span class="gradient-text">Team</span>
+                </h2>
+                <p class="team-subtitle-premium">The passionate professionals behind our success</p>
+            </div>
+            <div class="team-grid-premium">
+                <div class="team-member-premium">
+                    <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #EE5A24);">
+                        <span>MD</span>
+                    </div>
+                    <h4>MusaMali Derick</h4>
+                    <span class="team-role">Founder & Lead Developer</span>
+                    <p>Visionary leader with a passion for technology and innovation.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member-premium">
+                    <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #6C63FF, #4834D4);">
+                        <span>SN</span>
+                    </div>
+                    <h4>Sarah Nakato</h4>
+                    <span class="team-role">Creative Director</span>
+                    <p>Creative visionary with expertise in design and media production.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member-premium">
+                    <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #00D2FF, #0984E3);">
+                        <span>JM</span>
+                    </div>
+                    <h4>John Musoke</h4>
+                    <span class="team-role">Lead Photographer</span>
+                    <p>Professional photographer with 10+ years of experience.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member-premium">
+                    <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);">
+                        <span>RK</span>
+                    </div>
+                    <h4>Robert Kato</h4>
+                    <span class="team-role">Fabrication Engineer</span>
+                    <p>Expert in agricultural fabrication and engineering solutions.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member-premium">
+                    <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #00B894, #00A86B);">
+                        <span>JM</span>
+                    </div>
+                    <h4>Jane Mwangi</h4>
+                    <span class="team-role">Graphic Designer</span>
+                    <p>Creative designer specializing in branding and digital media.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member-premium">
+                    <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #8E44AD, #9B59B6);">
+                        <span>PK</span>
+                    </div>
+                    <h4>Peter Kigozi</h4>
+                    <span class="team-role">Project Manager</span>
+                    <p>Ensuring projects are delivered on time and within budget.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STATISTICS - ENHANCED
+    ============================================================ -->
+    <section class="stats-premium section-reveal">
+        <div class="stats-premium-container">
+            <div class="stats-grid-premium">
+                <div class="stat-item-premium">
+                    <div class="stat-number-premium" data-target="120">0</div>
+                    <div class="stat-label-premium">Projects Completed</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> +15%</div>
+                </div>
+                <div class="stat-item-premium">
+                    <div class="stat-number-premium" data-target="85">0</div>
+                    <div class="stat-label-premium">Satisfied Clients</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> +20%</div>
+                </div>
+                <div class="stat-item-premium">
+                    <div class="stat-number-premium" data-target="5">0</div>
+                    <div class="stat-label-premium">Years Experience</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> Growing</div>
+                </div>
+                <div class="stat-item-premium">
+                    <div class="stat-number-premium" data-target="15">0</div>
+                    <div class="stat-label-premium">Professional Services</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> +5</div>
+                </div>
+                <div class="stat-item-premium">
+                    <div class="stat-number-premium" data-target="24">0</div>
+                    <div class="stat-label-premium">Customer Support</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> 24/7</div>
+                </div>
+                <div class="stat-item-premium">
+                    <div class="stat-number-premium" data-target="98">0</div>
+                    <div class="stat-label-premium">Satisfaction Rate</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> +5%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TESTIMONIALS - ENHANCED
+    ============================================================ -->
+    <section class="testimonials-premium section-reveal">
+        <div class="testimonials-premium-container">
+            <div class="testimonials-header-premium">
+                <span class="testimonials-tag-premium">💬 Testimonials</span>
+                <h2 class="testimonials-title-premium">
+                    What Our <span class="gradient-text">Clients Say</span>
+                </h2>
+                <p class="testimonials-subtitle-premium">Real feedback from real people</p>
+            </div>
+            <div class="testimonials-grid-premium">
+                <div class="testimonial-card-premium">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"MusaMali Derick Enterprises developed our management system on time and exceeded our expectations."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #FF6B6B, #EE5A24);">JM</div>
+                        <div>
+                            <div class="author-name">John Musoke</div>
+                            <div class="author-company">ABC Farm Ltd, Mukono</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card-premium">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The photography and branding services helped us reach new customers. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #6C63FF, #4834D4);">SN</div>
+                        <div>
+                            <div class="author-name">Sarah Nakato</div>
+                            <div class="author-company">Business Owner, Kampala</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card-premium">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Our modern cow houses increased productivity by 40%. Thank you for the amazing work!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);">RK</div>
+                        <div>
+                            <div class="author-name">Robert Kato</div>
+                            <div class="author-company">Farmer, Masaka</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FAQ - ENHANCED
+    ============================================================ -->
+    <section class="faq-premium section-reveal">
+        <div class="faq-premium-container">
+            <div class="faq-header-premium">
+                <span class="faq-tag-premium">❓ FAQ</span>
+                <h2 class="faq-title-premium">
+                    Frequently Asked <span class="gradient-text">Questions</span>
+                </h2>
+                <p class="faq-subtitle-premium">Find answers to common questions about our services</p>
+            </div>
+            <div class="faq-grid-premium">
+                <div class="faq-item-premium">
+                    <div class="faq-question-premium">
+                        <h4>How much does a website cost?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer-premium">
+                        <p>Website costs vary depending on complexity, features, and design requirements. Contact us for a free, no-obligation quote tailored to your specific needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item-premium">
+                    <div class="faq-question-premium">
+                        <h4>How long does branding take?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer-premium">
+                        <p>Branding projects typically take 2-4 weeks depending on the scope. This includes research, design, revisions, and final delivery.</p>
+                    </div>
+                </div>
+                <div class="faq-item-premium">
+                    <div class="faq-question-premium">
+                        <h4>Do you work outside Uganda?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer-premium">
+                        <p>Yes! We work with clients across East Africa and internationally. Our services are delivered remotely and on-site when needed.</p>
+                    </div>
+                </div>
+                <div class="faq-item-premium">
+                    <div class="faq-question-premium">
+                        <h4>Do you offer maintenance?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer-premium">
+                        <p>Yes, we provide ongoing maintenance and support for all our projects, including updates, security patches, and technical support.</p>
+                    </div>
+                </div>
+                <div class="faq-item-premium">
+                    <div class="faq-question-premium">
+                        <h4>How can I request a quotation?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer-premium">
+                        <p>Simply contact us through our website, email, or phone. We'll schedule a consultation to understand your needs and provide a detailed quotation.</p>
+                    </div>
+                </div>
+                <div class="faq-item-premium">
+                    <div class="faq-question-premium">
+                        <h4>How long does a project take?</h4>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer-premium">
+                        <p>Project timelines vary based on scope and complexity. We provide clear timelines during the planning phase and keep you updated throughout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA - ENHANCED
+    ============================================================ -->
+    <section class="cta-premium section-reveal">
+        <div class="cta-premium-container">
+            <div class="cta-premium-content">
+                <span class="cta-badge-premium">🚀 Start Now</span>
+                <h2 class="cta-title-premium">
+                    Ready to Transform Your Ideas Into <span style="color: #6C63FF;">Reality</span>?
+                </h2>
+                <p class="cta-description-premium">
+                    Let's discuss your project and create innovative solutions that help your business grow.
+                </p>
+                <div class="cta-buttons-premium">
+                    <a href="{% url 'contact' %}" class="btn-primary btn-premium">
+                        <i class="fas fa-paper-plane"></i> Request Quote
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-secondary btn-premium-outline">
+                        <i class="fas fa-calendar-check"></i> Book Consultation
+                    </a>
+                    <a href="tel:+256xxxxxxxxx" class="btn-secondary btn-premium-outline">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER - MATCHES CONTACT PAGE STYLING
+    ============================================================ -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3 class="footer-logo"><i class="fas fa-code"></i> MyDjango</h3>
-                    <p class="footer-description">Building amazing web applications with Django.</p>
+                    <h3 class="footer-logo">
+                        <i class="fas fa-crown"></i> MusaMali Derick
+                    </h3>
+                    <p class="footer-description">
+                        Creative & Technology Solutions - Photography, Graphic Design, 
+                        Videography, Fabrication, and Web Development.
+                    </p>
                     <div class="footer-socials">
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
@@ -91,41 +789,112 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/about/">About</a></li>
-                        <li><a href="/contact/">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Contact</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><a href="#">Photography</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Videography</a></li>
+                        <li><a href="#">Fabrication</a></li>
+                        <li><a href="#">Web Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-hours">
+                    <h4>Business Hours</h4>
+                    <ul>
+                        <li>
+                            <span class="day"><i class="fas fa-calendar-day"></i> Mon – Fri</span>
+                            <span class="time">8:00 AM – 6:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day"><i class="fas fa-calendar-day"></i> Saturday</span>
+                            <span class="time">9:00 AM – 2:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day"><i class="fas fa-calendar-day"></i> Sunday</span>
+                            <span class="time closed">Closed</span>
+                        </li>
+                        <li style="border-bottom: none; margin-top: 0.2rem; padding-top: 0.2rem;">
+                            <span class="day"><i class="fas fa-clock"></i> After Hours</span>
+                            <span class="time" style="font-size: 0.85rem; color: #b6ccdf;">By Appointment</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 MyDjango. All rights reserved.</p>
+                <p>&copy; <span id="currentYear">2026</span> MusaMali Derick Enterprises. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        // ===== DYNAMIC YEAR IN FOOTER =====
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ===== CONSOLE WELCOME =====
+        console.log('📸 MusaMali Derick Enterprises - About Page');
+        console.log('🎨 Creative & Technology Solutions');
+        console.log('🚀 Empowering businesses through innovation!');
+
+        // ===== COUNTER ANIMATION =====
+        const counters = document.querySelectorAll('.stat-number-premium');
+        const speed = 200;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = Math.ceil(target / 30);
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + '+';
+                        return;
+                    }
+                    counter.textContent = current + '+';
+                    setTimeout(updateCounter, 40);
+                };
+                updateCounter();
+            });
+        };
+
+        const statsSection = document.querySelector('.stats-premium');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) observer.observe(statsSection);
     </script>
+    <script src="{% static 'hello/js/about.js' %}" defer></script>
 </body>
 </html>

@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - MyDjango</title>
+    <title>Contact - MusaMali Derick Enterprises</title>
+    <meta name="description" content="Get in touch with MusaMali Derick Enterprises for photography, graphic design, videography, fabrication, and web development services.">
     <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
+    <!-- ===== PREMIUM NAVIGATION ===== -->
+    <nav class="navbar premium-nav" id="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <i class="fas fa-code"></i> MyDjango
+            <a href="/" class="nav-logo premium-logo">
+                <i class="fas fa-crown"></i> MusaMali Derick
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="/" {% if page == 'home' %}class="active"{% endif %}>Home</a></li>
@@ -22,7 +23,10 @@
                 <li><a href="/contact/" {% if page == 'contact' %}class="active"{% endif %}>Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="/contact/" class="btn-nav">Get Started</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="/contact/" class="btn-nav premium-btn">Get Started</a>
                 <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
@@ -32,36 +36,44 @@
         </div>
     </nav>
 
-    <!-- ===== CONTACT HERO ===== -->
-    <section class="contact-hero">
-        <div class="contact-hero-container">
+    <!-- ===== HERO SECTION ===== -->
+    <section class="contact-hero premium-hero">
+        <div class="premium-shapes">
+            <div class="shape s1"></div>
+            <div class="shape s2"></div>
+            <div class="shape s3"></div>
+            <div class="shape s4"></div>
+        </div>
+        <div class="contact-hero-container premium-hero-container">
             <div class="contact-hero-badges">
-                <span class="contact-badge">
+                <span class="contact-badge premium-badge">
                     <i class="fas fa-headset"></i> 24/7 Support
                 </span>
-                <span class="contact-badge status-badge">
+                <span class="contact-badge premium-badge status-badge">
                     <span class="status-dot"></span> Available Now
                 </span>
             </div>
-            <h1 class="contact-hero-title">Get in <span class="gradient-text">Touch</span></h1>
-            <p class="contact-hero-description">
+            <h1 class="contact-hero-title premium-title">
+                Get in <span class="gradient-text">Touch</span>
+            </h1>
+            <p class="contact-hero-description premium-description">
                 Have a question, idea, or project in mind? We'd love to hear from you. 
                 Our team is ready to help you bring your vision to life.
             </p>
-            <div class="contact-hero-stats">
-                <div class="hero-stat">
+            <div class="contact-hero-stats premium-stats">
+                <div class="hero-stat premium-stat">
                     <span class="hero-stat-number">500+</span>
                     <span class="hero-stat-label">Happy Clients</span>
                 </div>
-                <div class="hero-stat">
+                <div class="hero-stat premium-stat">
                     <span class="hero-stat-number">98%</span>
-                    <span class="hero-stat-label">Satisfaction Rate</span>
+                    <span class="hero-stat-label">Satisfaction</span>
                 </div>
-                <div class="hero-stat">
+                <div class="hero-stat premium-stat">
                     <span class="hero-stat-number">24/7</span>
-                    <span class="hero-stat-label">Support Available</span>
+                    <span class="hero-stat-label">Support</span>
                 </div>
-                <div class="hero-stat">
+                <div class="hero-stat premium-stat">
                     <span class="hero-stat-number">4.9★</span>
                     <span class="hero-stat-label">Average Rating</span>
                 </div>
@@ -70,16 +82,16 @@
     </section>
 
     <!-- ===== CONTACT SECTION ===== -->
-    <section class="contact-section">
-        <div class="contact-container">
-            <div class="contact-grid">
+    <section class="contact-section premium-section">
+        <div class="contact-container premium-container">
+            <div class="contact-grid premium-grid">
                 <!-- Contact Info Cards -->
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon-wrapper">
+                <div class="contact-info premium-info">
+                    <div class="info-card premium-card">
+                        <div class="info-icon-wrapper premium-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="info-content">
+                        <div class="info-content premium-content">
                             <h4>Visit Our Office</h4>
                             <p>Mbuya, Kampala, Uganda</p>
                             <a href="https://www.google.com/maps?q=8JPJ%2B6P9+Kampala" target="_blank" class="info-link">
@@ -87,37 +99,37 @@
                             </a>
                         </div>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon-wrapper">
+                    <div class="info-card premium-card">
+                        <div class="info-icon-wrapper premium-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="info-content">
+                        <div class="info-content premium-content">
                             <h4>Email Us</h4>
-                            <p>info@mydjango.com</p>
-                            <p>support@mydjango.com</p>
+                            <p>info@musamaliderick.com</p>
+                            <p>support@musamaliderick.com</p>
                             <span class="info-response-time">
                                 <i class="fas fa-clock"></i> Response within 24 hours
                             </span>
                         </div>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon-wrapper">
+                    <div class="info-card premium-card">
+                        <div class="info-icon-wrapper premium-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
-                        <div class="info-content">
+                        <div class="info-content premium-content">
                             <h4>Call Us</h4>
-                            <p><strong>Main:</strong> +1 (555) 123-4567</p>
-                            <p><strong>Support:</strong> +1 (555) 987-6543</p>
+                            <p><strong>Main:</strong> +256 (XXX) XXX-XXX</p>
+                            <p><strong>Support:</strong> +256 (XXX) XXX-XXX</p>
                             <span class="info-response-time">
-                                <i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM PST
+                                <i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM EAT
                             </span>
                         </div>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon-wrapper">
+                    <div class="info-card premium-card">
+                        <div class="info-icon-wrapper premium-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <div class="info-content">
+                        <div class="info-content premium-content">
                             <h4>Working Hours</h4>
                             <p><span class="day">Monday - Friday:</span> 9:00 AM - 6:00 PM</p>
                             <p><span class="day">Saturday - Sunday:</span> Closed</p>
@@ -126,9 +138,9 @@
                             </span>
                         </div>
                     </div>
-                    <div class="social-links">
+                    <div class="social-links premium-social">
                         <h4>Connect With Us</h4>
-                        <div class="social-icons">
+                        <div class="social-icons premium-social-icons">
                             <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
@@ -139,17 +151,17 @@
                     </div>
                 </div>
 
-                <!-- ===== ENHANCED CONTACT FORM ===== -->
-                <div class="contact-form-wrapper">
-                    <div class="form-header">
-                        <span class="form-badge">📝 Project Inquiry</span>
+                <!-- ===== PREMIUM CONTACT FORM ===== -->
+                <div class="contact-form-wrapper premium-form-wrapper">
+                    <div class="form-header premium-form-header">
+                        <span class="form-badge premium-badge">📝 Project Inquiry</span>
                         <h2>Let's Start Your <span class="gradient-text">Project</span></h2>
                         <p>Fill out the form below and we'll get back to you within 24 hours</p>
                     </div>
                     
                     <!-- Display Django form errors -->
                     {% if form.errors %}
-                        <div class="form-errors">
+                        <div class="form-errors premium-errors">
                             <i class="fas fa-exclamation-circle"></i>
                             <strong>Please fix the following errors:</strong>
                             <ul>
@@ -162,23 +174,23 @@
                         </div>
                     {% endif %}
                     
-                    <form method="post" class="contact-form" id="contactForm" enctype="multipart/form-data">
+                    <form method="post" class="contact-form premium-form" id="contactForm" enctype="multipart/form-data">
                         {% csrf_token %}
                         
                         <!-- ===== PERSONAL INFORMATION ===== -->
-                        <h3 class="form-section-title">
+                        <h3 class="form-section-title premium-section-title">
                             <i class="fas fa-user-circle"></i> Personal Information
                         </h3>
                         
-                        <div class="form-row">
-                            <div class="form-group">
+                        <div class="form-row premium-row">
+                            <div class="form-group premium-group">
                                 <label for="id_name">
                                     <i class="fas fa-user"></i> Full Name <span class="required">*</span>
                                 </label>
                                 {{ form.name }}
                                 <div class="error-message" id="nameError"></div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group premium-group">
                                 <label for="id_email">
                                     <i class="fas fa-envelope"></i> Email Address <span class="required">*</span>
                                 </label>
@@ -187,15 +199,15 @@
                             </div>
                         </div>
                         
-                        <div class="form-row">
-                            <div class="form-group">
+                        <div class="form-row premium-row">
+                            <div class="form-group premium-group">
                                 <label for="id_phone">
                                     <i class="fas fa-phone"></i> Phone Number
                                 </label>
                                 {{ form.phone }}
                                 <div class="error-message" id="phoneError"></div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group premium-group">
                                 <label for="id_company">
                                     <i class="fas fa-building"></i> Company Name
                                 </label>
@@ -203,7 +215,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group premium-group">
                             <label for="id_job_title">
                                 <i class="fas fa-briefcase"></i> Job Title
                             </label>
@@ -211,11 +223,11 @@
                         </div>
                         
                         <!-- ===== PROJECT DETAILS ===== -->
-                        <h3 class="form-section-title">
+                        <h3 class="form-section-title premium-section-title">
                             <i class="fas fa-project-diagram"></i> Project Details
                         </h3>
                         
-                        <div class="form-group">
+                        <div class="form-group premium-group">
                             <label for="id_subject">
                                 <i class="fas fa-tag"></i> Subject <span class="required">*</span>
                             </label>
@@ -223,14 +235,14 @@
                             <div class="error-message" id="subjectError"></div>
                         </div>
                         
-                        <div class="form-row">
-                            <div class="form-group">
+                        <div class="form-row premium-row">
+                            <div class="form-group premium-group">
                                 <label for="id_service_interest">
                                     <i class="fas fa-cogs"></i> Service Interest
                                 </label>
                                 {{ form.service_interest }}
                             </div>
-                            <div class="form-group">
+                            <div class="form-group premium-group">
                                 <label for="id_budget">
                                     <i class="fas fa-dollar-sign"></i> Budget Range
                                 </label>
@@ -238,14 +250,14 @@
                             </div>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group premium-group">
                             <label for="id_timeline">
                                 <i class="fas fa-clock"></i> Project Timeline
                             </label>
                             {{ form.timeline }}
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group premium-group">
                             <label for="id_message">
                                 <i class="fas fa-comment"></i> Message <span class="required">*</span>
                             </label>
@@ -254,13 +266,13 @@
                         </div>
                         
                         <!-- ===== ATTACHMENT ===== -->
-                        <div class="form-group file-upload">
+                        <div class="form-group file-upload premium-upload">
                             <label for="id_attachment">
                                 <i class="fas fa-paperclip"></i> Attach File (Optional)
                             </label>
-                            <div class="file-upload-wrapper">
+                            <div class="file-upload-wrapper premium-upload-wrapper">
                                 {{ form.attachment }}
-                                <div class="file-upload-info">
+                                <div class="file-upload-info premium-upload-info">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <span>Drop files here or click to upload</span>
                                     <small>Max file size: 5MB (PDF, DOC, JPG, PNG, ZIP)</small>
@@ -269,7 +281,7 @@
                         </div>
                         
                         <!-- ===== REFERRAL ===== -->
-                        <div class="form-group">
+                        <div class="form-group premium-group">
                             <label for="id_referral">
                                 <i class="fas fa-user-plus"></i> How did you find us?
                             </label>
@@ -277,12 +289,12 @@
                         </div>
                         
                         <!-- ===== CONSENT & PREFERENCES ===== -->
-                        <h3 class="form-section-title">
+                        <h3 class="form-section-title premium-section-title">
                             <i class="fas fa-shield-alt"></i> Consent & Preferences
                         </h3>
                         
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
+                        <div class="form-group checkbox-group premium-checkbox">
+                            <label class="checkbox-label premium-checkbox-label">
                                 {{ form.consent }}
                                 <span class="checkmark"></span>
                                 I agree to the <a href="#" target="_blank">Privacy Policy</a> 
@@ -291,16 +303,16 @@
                             <div class="error-message" id="consentError"></div>
                         </div>
                         
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
+                        <div class="form-group checkbox-group premium-checkbox">
+                            <label class="checkbox-label premium-checkbox-label">
                                 {{ form.consent_marketing }}
                                 <span class="checkmark"></span>
                                 <i class="fas fa-envelope"></i> I agree to receive marketing communications via email
                             </label>
                         </div>
                         
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
+                        <div class="form-group checkbox-group premium-checkbox">
+                            <label class="checkbox-label premium-checkbox-label">
                                 {{ form.newsletter }}
                                 <span class="checkmark"></span>
                                 <i class="fas fa-newspaper"></i> Subscribe to our monthly newsletter for updates and tips
@@ -308,7 +320,7 @@
                         </div>
                         
                         <!-- ===== RECAPTCHA ===== -->
-                        <div class="form-group recaptcha-group">
+                        <div class="form-group recaptcha-group premium-recaptcha">
                             {{ form.captcha }}
                             {% if form.captcha.errors %}
                                 <div class="error-message">{{ form.captcha.errors }}</div>
@@ -316,16 +328,16 @@
                         </div>
                         
                         <!-- ===== FORM ACTIONS ===== -->
-                        <div class="form-actions">
-                            <button type="submit" class="btn-submit" id="submitBtn">
+                        <div class="form-actions premium-actions">
+                            <button type="submit" class="btn-submit premium-submit" id="submitBtn">
                                 <span class="btn-text">
                                     <i class="fas fa-paper-plane"></i> Send Message
                                 </span>
-                                <span class="btn-loading" style="display: none;">
+                                <span class="btn-loading btn-loading-hidden">
                                     <i class="fas fa-spinner fa-spin"></i> Sending...
                                 </span>
                             </button>
-                            <p class="form-note">
+                            <p class="form-note premium-note">
                                 <i class="fas fa-lock"></i> Your information is secure and will not be shared
                             </p>
                         </div>
@@ -336,47 +348,47 @@
     </section>
 
     <!-- ===== FAQ SECTION ===== -->
-    <section class="faq-section">
-        <div class="faq-container">
-            <div class="section-header">
-                <span class="section-tag">❓ FAQ</span>
-                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
-                <p class="section-subtitle">Find answers to common questions about our services</p>
+    <section class="faq-section premium-faq">
+        <div class="faq-container premium-faq-container">
+            <div class="section-header premium-section-header">
+                <span class="section-tag premium-tag">❓ FAQ</span>
+                <h2 class="section-title premium-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="section-subtitle premium-subtitle">Find answers to common questions about our services</p>
             </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
+            <div class="faq-grid premium-faq-grid">
+                <div class="faq-item premium-faq-item">
+                    <div class="faq-question premium-faq-question">
                         <h4>How quickly will I get a response?</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer premium-faq-answer">
                         <p>We typically respond within 24 hours during business days. For urgent inquiries, please call our support line.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item premium-faq-item">
+                    <div class="faq-question premium-faq-question">
                         <h4>What services do you offer?</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
-                        <p>We offer web development, mobile app development, UI/UX design, cloud solutions, and technical consulting.</p>
+                    <div class="faq-answer premium-faq-answer">
+                        <p>We offer photography, graphic design, videography, fabrication, web development, and system design.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item premium-faq-item">
+                    <div class="faq-question premium-faq-question">
                         <h4>Do you offer free consultations?</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer premium-faq-answer">
                         <p>Yes! We offer a free 30-minute consultation to discuss your project requirements and how we can help.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
+                <div class="faq-item premium-faq-item">
+                    <div class="faq-question premium-faq-question">
                         <h4>What are your payment terms?</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer premium-faq-answer">
                         <p>We offer flexible payment plans. Typically, we require a 50% deposit and 50% upon completion. Contact us for custom arrangements.</p>
                     </div>
                 </div>
@@ -384,89 +396,92 @@
         </div>
     </section>
 
-    <!-- ===== MAP SECTION WITH MBUYA LOCATION ===== -->
-    
-
-    <!-- ===== MAP SECTION ===== -->
-<section class="map-section">
-    <div class="map-container">
-        <div class="map-header">
-            <span class="map-badge">📍 Find Us</span>
-            <h2 class="map-title">Visit Our <span class="gradient-text">Location</span></h2>
-            <p class="map-subtitle">We're located along Odongo Rd, Kampala</p>
-        </div>
-        <div class="map-wrapper">
-            <div class="map-card">
-                <div class="map-responsive">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.743783696214!2d32.6069!3d0.3229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMjIuNCJOIDMywrAzNicyMC4yIkU!5e0!3m2!1sen!2s!4v1700000000000" 
-                        width="100%" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Odongo Rd, Kampala Location">
-                    </iframe>
-                </div>
-                <div class="map-info-overlay">
-                    <div class="map-info-content">
-                        <div class="map-info-left">
-                            <div class="map-info-icon">
-                                <i class="fas fa-location-dot"></i>
+    <!-- ===== PREMIUM MAP SECTION ===== -->
+    <section class="map-section premium-map">
+        <div class="map-container premium-map-container">
+            <div class="map-header premium-map-header">
+                <span class="map-badge premium-badge">📍 Find Us</span>
+                <h2 class="map-title premium-title">Visit Our <span class="gradient-text">Location</span></h2>
+                <p class="map-subtitle premium-subtitle">We're located along Odongo Rd, Kampala</p>
+            </div>
+            <div class="map-wrapper premium-map-wrapper">
+                <div class="map-card premium-map-card">
+                    <div class="map-responsive premium-map-responsive">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.743783696214!2d32.6069!3d0.3229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMjIuNCJOIDMyMDM2JzIwLjIiRQ!5e0!3m2!1sen!2s!4v1700000000000" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Odongo Rd, Kampala Location">
+                        </iframe>
+                    </div>
+                    <div class="map-info-overlay premium-map-overlay">
+                        <div class="map-info-content premium-map-info">
+                            <div class="map-info-left premium-map-left">
+                                <div class="map-info-icon premium-map-icon">
+                                    <i class="fas fa-location-dot"></i>
+                                </div>
+                                <div class="map-info-text premium-map-text">
+                                    <h4>MusaMali Derick Enterprises</h4>
+                                    <p>Odongo Rd, Kampala, Uganda</p>
+                                </div>
                             </div>
-                            <div class="map-info-text">
-                                <h4>MyDjango Headquarters</h4>
-                                <p>Odongo Rd, Kampala, Uganda</p>
+                            <div class="map-info-right premium-map-right">
+                                <a href="https://www.google.com/maps/dir//Odongo+Rd,+Kampala" 
+                                   target="_blank" 
+                                   class="btn-map-primary premium-map-btn">
+                                    <i class="fas fa-directions"></i> Get Directions
+                                </a>
+                                <a href="https://www.google.com/maps/place/Odongo+Rd,+Kampala" 
+                                   target="_blank" 
+                                   class="btn-map-secondary premium-map-btn">
+                                    <i class="fas fa-expand"></i> View Larger Map
+                                </a>
                             </div>
-                        </div>
-                        <div class="map-info-right">
-                            <a href="https://www.google.com/maps/dir//Odongo+Rd,+Kampala" 
-                               target="_blank" 
-                               class="btn-map-primary">
-                                <i class="fas fa-directions"></i> Get Directions
-                            </a>
-                            <a href="https://www.google.com/maps/place/Odongo+Rd,+Kampala" 
-                               target="_blank" 
-                               class="btn-map-secondary">
-                                <i class="fas fa-expand"></i> View Larger Map
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- ===== CTA SECTION ===== -->
-    <section class="cta-simple">
-        <div class="cta-simple-container">
-            <div class="cta-simple-content">
-                <div class="cta-simple-text">
-                    <span class="cta-simple-badge">🚀 Start Now</span>
+    <!-- ===== PREMIUM CTA ===== -->
+    <section class="cta-simple premium-cta">
+        <div class="cta-simple-container premium-cta-container">
+            <div class="cta-simple-content premium-cta-content">
+                <div class="cta-simple-text premium-cta-text">
+                    <span class="cta-simple-badge premium-cta-badge">🚀 Start Now</span>
                     <h2>Ready to Build Something Amazing?</h2>
-                    <p>Let's turn your idea into reality with Django.</p>
+                    <p>Let's turn your idea into reality with our creative and technology solutions.</p>
                 </div>
-                <a href="#" class="btn-primary cta-simple-btn">
+                <a href="#" class="btn-primary cta-simple-btn premium-cta-btn">
                     <i class="fas fa-rocket"></i> Start Your Project
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER - MATCHES OTHER PAGES ===== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3 class="footer-logo"><i class="fas fa-code"></i> MyDjango</h3>
-                    <p class="footer-description">Building amazing web applications with Django. Fast, secure, and scalable.</p>
+                    <h3 class="footer-logo">
+                        <i class="fas fa-crown"></i> MusaMali Derick
+                    </h3>
+                    <p class="footer-description">
+                        Creative & Technology Solutions - Photography, Graphic Design, 
+                        Videography, Fabrication, and Web Development.
+                    </p>
                     <div class="footer-socials">
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -475,41 +490,92 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About</a></li>
                         <li><a href="/contact/">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Contact</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Mbuya, Kampala, Uganda</li>
+                        <li><a href="#">Photography</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Videography</a></li>
+                        <li><a href="#">Fabrication</a></li>
+                        <li><a href="#">Web Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column footer-hours">
+                    <h4>Business Hours</h4>
+                    <ul>
+                        <li class="hours-item">
+                            <span class="day"><i class="fas fa-calendar-day"></i> Mon – Fri</span>
+                            <span class="time">8:00 AM – 6:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day"><i class="fas fa-calendar-day"></i> Saturday</span>
+                            <span class="time">9:00 AM – 2:00 PM</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day"><i class="fas fa-calendar-day"></i> Sunday</span>
+                            <span class="time closed">Closed</span>
+                        </li>
+                        <li class="hours-item hours-item-last">
+                            <span class="day"><i class="fas fa-clock"></i> After Hours</span>
+                            <span class="time appointment">By Appointment</span>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 MyDjango. All rights reserved.</p>
+                <p>&copy; <span id="currentYear">2026</span> MusaMali Derick Enterprises. All rights reserved.</p>
                 <div class="footer-legal">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- ===== BACK TO TOP ===== -->
-    <button id="backToTop" class="back-to-top">
+    <button id="backToTop" class="back-to-top premium-top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
+        // ===== DARK MODE TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+        let isDark = false;
+
+        // Check saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.className = 'fas fa-sun';
+            isDark = true;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
         // ===== HAMBURGER MENU =====
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
@@ -686,10 +752,12 @@
         });
 
         // ===== DYNAMIC YEAR =====
-        const footerYear = document.querySelector('.footer-bottom p');
-        if (footerYear) {
-            footerYear.innerHTML = `&copy; ${new Date().getFullYear()} MyDjango. All rights reserved.`;
-        }
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // ===== CONSOLE WELCOME =====
+        console.log('📸 MusaMali Derick Enterprises - Contact Page');
+        console.log('🎨 Creative & Technology Solutions');
+        console.log('🚀 Ready to help you bring your vision to life!');
     </script>
 </body>
 </html>

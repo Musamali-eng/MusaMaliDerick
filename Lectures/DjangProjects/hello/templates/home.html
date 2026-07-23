@@ -4,27 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyDjango - Professional Web Development</title>
+    <title>MusaMali Derick - Creative & Technology Solutions</title>
     <link rel="stylesheet" href="{% static 'hello/css/style.css' %}">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Footer Business Hours styling - matches existing footer design */
+        .footer-hours ul li {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0.3rem 0 !important;
+            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+        }
+        .footer-hours ul li:last-child {
+            border-bottom: none !important;
+        }
+        .footer-hours ul li .day {
+            color: #b6ccdf !important;
+        }
+        .footer-hours ul li .time {
+            color: #e6edf5 !important;
+            font-weight: 500 !important;
+        }
+        .footer-hours ul li i {
+            color: #f5b042 !important;
+            margin-right: 8px !important;
+            width: 1.2rem !important;
+        }
+        .footer-grid {
+            display: grid !important;
+            grid-template-columns: 2fr 1fr 1.2fr 1.2fr 1.2fr !important;
+            gap: 2rem 1.5rem !important;
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+        }
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+        @media (max-width: 700px) {
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        /* ensure consistent heading underline */
+        .footer h4 {
+            color: #ffffff !important;
+            position: relative !important;
+            display: inline-block !important;
+            margin-bottom: 1.4rem !important;
+        }
+        .footer h4::after {
+            content: '' !important;
+            position: absolute !important;
+            left: 0 !important;
+            bottom: -6px !important;
+            width: 28px !important;
+            height: 3px !important;
+            background: #f5b042 !important;
+            border-radius: 6px !important;
+        }
+        .footer ul li a {
+            color: #cbddee !important;
+            transition: color 0.15s, padding-left 0.15s !important;
+        }
+        .footer ul li a:hover {
+            color: #ffffff !important;
+            padding-left: 4px !important;
+        }
+        .footer ul li i {
+            color: #f5b042 !important;
+            opacity: 0.7 !important;
+            margin-right: 6px !important;
+        }
+        .footer .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06) !important;
+            color: #95b1cc !important;
+        }
+        .footer .footer-bottom a {
+            color: #aec4db !important;
+        }
+        .footer .footer-bottom a:hover {
+            color: #ffffff !important;
+        }
+        /* dark mode */
+        body.dark-mode .footer {
+            background: #0b1a2e !important;
+        }
+        body.dark-mode .footer .footer-description {
+            color: #b6ccdf !important;
+        }
+        body.dark-mode .footer ul li a {
+            color: #cbddee !important;
+        }
+    </style>
 </head>
 <body>
     <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar premium-nav" id="navbar">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <i class="fas fa-code"></i> MyDjango
+            <a href="/" class="nav-logo premium-logo">
+                <i class="fas fa-crown"></i> MusaMali Derick
             </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/" {% if page == 'home' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="/about/" {% if page == 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="/contact/" {% if page == 'contact' or page == 'success' %}class="active"{% endif %}>Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="/contact/" class="btn-nav">Get Started</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="/contact/" class="btn-nav premium-btn">Get Started</a>
                 <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
@@ -38,34 +133,45 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <span class="hero-badge">🚀 Django 6.0</span>
+                <span class="hero-badge">
+                    <i class="fas fa-rocket"></i> Creative & Technology Solutions
+                </span>
                 <h1 class="hero-title">
-                    Build Amazing<br>
-                    <span class="gradient-text">Web Applications</span>
+                    Bringing Ideas to<br>
+                    <span class="gradient-text">Life Through</span>
                 </h1>
+                <div class="hero-services">
+                    <span class="service-tag"><i class="fas fa-camera"></i> Photography</span>
+                    <span class="service-tag"><i class="fas fa-palette"></i> Graphic</span>
+                    <span class="service-tag"><i class="fas fa-video"></i> Videography</span>
+                    <span class="service-tag"><i class="fas fa-tractor"></i> Fabrication</span>
+                    <span class="service-tag"><i class="fas fa-code"></i> Technology</span>
+                </div>
                 <p class="hero-description" id="typing-text">
-                    Create powerful, scalable, and secure web applications with 
-                    Django - the high-level Python web framework.
+                    We deliver innovative solutions across creative media, agricultural 
+                    fabrication, and cutting-edge technology - from designing modern 
+                    cow houses to building web applications and systems.
                 </p>
                 <div class="hero-buttons">
-                    <a href="/contact/" class="btn-primary">
-                        <i class="fas fa-rocket"></i> Get Started
+                    <a href="/contact/" class="btn-primary btn-hero">
+                        <i class="fas fa-rocket"></i> Start Your Project
+                        <span class="btn-glow"></span>
                     </a>
-                    <a href="/about/" class="btn-secondary">
-                        <i class="fas fa-play-circle"></i> Learn More
+                    <a href="#services" class="btn-secondary btn-hero-secondary">
+                        <i class="fas fa-play-circle"></i> Explore Services
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number counter" data-target="15000">0</span>
-                        <span class="stat-label">Projects Built</span>
-                    </div>
-                    <div class="stat-item">
                         <span class="stat-number counter" data-target="500">0</span>
-                        <span class="stat-label">Happy Clients</span>
+                        <span class="stat-label">Projects Delivered</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number counter" data-target="99">0</span>
+                        <span class="stat-number counter" data-target="200">0</span>
+                        <span class="stat-label">Happy Farmers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number counter" data-target="98">0</span>
                         <span class="stat-label">% Satisfaction</span>
                     </div>
                 </div>
@@ -73,27 +179,49 @@
             <div class="hero-image">
                 <div class="hero-illustration">
                     <div class="floating-element element-1">
-                        <i class="fas fa-python"></i>
+                        <i class="fas fa-camera"></i>
                     </div>
                     <div class="floating-element element-2">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-palette"></i>
                     </div>
                     <div class="floating-element element-3">
-                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-tractor"></i>
                     </div>
-                    <div class="code-window">
-                        <div class="code-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
+                    <div class="floating-element element-4">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="floating-element element-5">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="hero-card">
+                        <div class="hero-card-header">
+                            <span class="card-icon"><i class="fas fa-crown"></i></span>
+                            <span class="card-title">MusaMali Derick</span>
                         </div>
-                        <div class="code-content" id="codeContent">
-                            <span class="code-keyword">from</span> django <span class="code-keyword">import</span> <span class="code-class">HttpResponse</span>
-                            <br>
-                            <br>
-                            <span class="code-keyword">def</span> <span class="code-function">home</span>(request):
-                            <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-class">HttpResponse</span>(<span class="code-string">"Hello, World!"</span>)
+                        <div class="hero-card-body">
+                            <div class="card-service service-photography">
+                                <i class="fas fa-camera"></i>
+                                <span>Photography</span>
+                            </div>
+                            <div class="card-service service-graphic">
+                                <i class="fas fa-palette"></i>
+                                <span>Graphic Design</span>
+                            </div>
+                            <div class="card-service service-videography">
+                                <i class="fas fa-video"></i>
+                                <span>Videography</span>
+                            </div>
+                            <div class="card-service service-fabrication">
+                                <i class="fas fa-tractor"></i>
+                                <span>Fabrication</span>
+                            </div>
+                            <div class="card-service service-web">
+                                <i class="fas fa-code"></i>
+                                <span>Web Development</span>
+                            </div>
+                        </div>
+                        <div class="hero-card-footer">
+                            <span class="card-status"><i class="fas fa-check-circle"></i> Available for Projects</span>
                         </div>
                     </div>
                 </div>
@@ -101,153 +229,155 @@
         </div>
     </section>
 
-    <!-- ===== DYNAMIC FEATURES SECTION ===== -->
-    <section class="features" id="features">
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="features" id="services">
         <div class="section-header">
-            <span class="section-tag">Features</span>
-            <h2 class="section-title">Why Choose Django?</h2>
+            <span class="section-tag">Our Services</span>
+            <h2 class="section-title">What <span class="gradient-text">We Do</span></h2>
             <p class="section-subtitle">
-                Django provides everything you need to build world-class web applications
+                Comprehensive solutions across creative media, fabrication, and technology
             </p>
         </div>
         <div class="features-grid">
+            <!-- Photography -->
             <div class="feature-card" data-delay="0">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-bolt feature-icon"></i>
+                <div class="feature-icon-wrapper feature-icon-photography">
+                    <i class="fas fa-camera feature-icon"></i>
                 </div>
-                <h3>Lightning Fast</h3>
-                <p>Build applications quickly with Django's batteries-included approach.</p>
+                <h3>Photography</h3>
+                <p>Professional photography services for events, portraits, products, and commercial shoots with high-quality editing.</p>
                 <a href="#" class="feature-link">Learn More →</a>
             </div>
+            
+            <!-- Graphic Design -->
             <div class="feature-card" data-delay="100">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-shield-alt feature-icon"></i>
+                <div class="feature-icon-wrapper feature-icon-graphic">
+                    <i class="fas fa-palette feature-icon"></i>
                 </div>
-                <h3>Rock Solid Security</h3>
-                <p>Protection against CSRF, XSS, SQL injection, and other vulnerabilities.</p>
+                <h3>Graphic Design</h3>
+                <p>Creative graphic design services including branding, logos, posters, flyers, stickers, and digital media.</p>
                 <a href="#" class="feature-link">Learn More →</a>
             </div>
+            
+            <!-- Videography -->
             <div class="feature-card" data-delay="200">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-chart-line feature-icon"></i>
+                <div class="feature-icon-wrapper feature-icon-videography">
+                    <i class="fas fa-video feature-icon"></i>
                 </div>
-                <h3>Highly Scalable</h3>
-                <p>Used by Pinterest, Instagram, and Spotify - scales from small to enterprise.</p>
+                <h3>Videography</h3>
+                <p>High-quality video production for documentaries, weddings, events, promos, and digital content creation.</p>
                 <a href="#" class="feature-link">Learn More →</a>
             </div>
+            
+            <!-- Fabrication -->
             <div class="feature-card" data-delay="300">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-globe-americas feature-icon"></i>
+                <div class="feature-icon-wrapper feature-icon-fabrication">
+                    <i class="fas fa-tractor feature-icon"></i>
                 </div>
-                <h3>SEO Optimized</h3>
-                <p>Built-in SEO tools, clean URLs, and sitemap generation.</p>
+                <h3>Fabrication & Agriculture</h3>
+                <p>Designing agricultural tractors, modern cow houses, farm equipment, and innovative agricultural solutions.</p>
                 <a href="#" class="feature-link">Learn More →</a>
             </div>
+            
+            <!-- System Design -->
             <div class="feature-card" data-delay="400">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-users feature-icon"></i>
+                <div class="feature-icon-wrapper feature-icon-system">
+                    <i class="fas fa-microchip feature-icon"></i>
                 </div>
-                <h3>Community Driven</h3>
-                <p>Join millions of developers worldwide contributing to Django.</p>
+                <h3>System Design</h3>
+                <p>Innovative system architecture, software design, and technology solutions for businesses and organizations.</p>
                 <a href="#" class="feature-link">Learn More →</a>
             </div>
+            
+            <!-- Web Development -->
             <div class="feature-card" data-delay="500">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-mobile-alt feature-icon"></i>
+                <div class="feature-icon-wrapper feature-icon-web">
+                    <i class="fas fa-code feature-icon"></i>
                 </div>
-                <h3>Mobile Ready</h3>
-                <p>Responsive design and mobile-friendly templates for any device.</p>
+                <h3>Web Development</h3>
+                <p>Custom web applications, websites, and digital platforms built with modern technologies including Django.</p>
                 <a href="#" class="feature-link">Learn More →</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== DYNAMIC COUNTER SECTION ===== -->
+    <!-- ===== STATS SECTION ===== -->
     <section class="stats-section">
         <div class="stats-container">
             <div class="stats-grid">
                 <div class="stats-card">
-                    <div class="stats-number counter" data-target="15000">0</div>
-                    <div class="stats-label">Lines of Code</div>
-                </div>
-                <div class="stats-card">
-                    <div class="stats-number counter" data-target="1200">0</div>
-                    <div class="stats-label">Hours Saved</div>
-                </div>
-                <div class="stats-card">
-                    <div class="stats-number counter" data-target="98">0</div>
-                    <div class="stats-label">% Satisfaction</div>
-                </div>
-                <div class="stats-card">
                     <div class="stats-number counter" data-target="500">0</div>
-                    <div class="stats-label">Projects Delivered</div>
+                    <div class="stats-label">Projects Completed</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number counter" data-target="200">0</div>
+                    <div class="stats-label">Happy Farmers</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number counter" data-target="100">0</div>
+                    <div class="stats-label">Creative Projects</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number counter" data-target="50">0</div>
+                    <div class="stats-label">Tech Solutions</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== DYNAMIC TESTIMONIALS ===== -->
+    <!-- ===== PORTFOLIO SHOWCASE ===== -->
     <section class="testimonials">
         <div class="section-header">
-            <span class="section-tag">Testimonials</span>
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Real feedback from real people who used our services</p>
+            <span class="section-tag">Portfolio</span>
+            <h2 class="section-title">Our <span class="gradient-text">Work</span></h2>
+            <p class="section-subtitle">Showcasing our best projects across all services</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="portfolio-icon portfolio-photography">
+                    <i class="fas fa-camera"></i>
                 </div>
+                <h3 class="portfolio-title">Photography</h3>
                 <p class="testimonial-text">
-                    "Django has revolutionized our development process. We built our entire platform in record time!"
+                    "Professional photography services that capture moments and tell stories through stunning visuals."
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">JD</div>
+                    <div class="author-avatar avatar-photography">P</div>
                     <div>
-                        <div class="author-name">John Doe</div>
-                        <div class="author-role">CEO, TechStart</div>
+                        <div class="author-name">Portfolio Work</div>
+                        <div class="author-role">Events • Portraits • Commercial</div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="portfolio-icon portfolio-fabrication">
+                    <i class="fas fa-tractor"></i>
                 </div>
+                <h3 class="portfolio-title">Fabrication</h3>
                 <p class="testimonial-text">
-                    "The security features in Django gave us peace of mind. Our users' data is completely safe."
+                    "Designing modern agricultural equipment and cow houses that improve farming efficiency and animal welfare."
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">SM</div>
+                    <div class="author-avatar avatar-fabrication">F</div>
                     <div>
-                        <div class="author-name">Sarah Mitchell</div>
-                        <div class="author-role">CTO, DataSecure</div>
+                        <div class="author-name">Fabrication Work</div>
+                        <div class="author-role">Tractors • Cow Houses • Equipment</div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="portfolio-icon portfolio-technology">
+                    <i class="fas fa-code"></i>
                 </div>
+                <h3 class="portfolio-title">Technology</h3>
                 <p class="testimonial-text">
-                    "Scalability is incredible! We went from 100 to 10,000 users without any issues."
+                    "Innovative system design and web development solutions that empower businesses and organizations."
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">MR</div>
+                    <div class="author-avatar avatar-technology">T</div>
                     <div>
-                        <div class="author-name">Mike Rodriguez</div>
-                        <div class="author-role">Founder, GrowthHub</div>
+                        <div class="author-name">Technology Work</div>
+                        <div class="author-role">Systems • Web • Applications</div>
                     </div>
                 </div>
             </div>
@@ -259,72 +389,114 @@
         <div class="cta-container">
             <div class="cta-content">
                 <span class="cta-badge">🚀 Start Now</span>
-                <h2 class="cta-title">Ready to Build Something Amazing?</h2>
+                <h2 class="cta-title">
+                    Turn Your <span class="cta-highlight">Vision</span> Into 
+                    <span class="cta-highlight">Reality</span>
+                </h2>
                 <p class="cta-description">
-                    Join thousands of developers who trust Django for their web applications. 
-                    Let's turn your idea into reality.
+                    Whether you need creative media, agricultural fabrication, or technology solutions, 
+                    we're here to help. Let's turn your vision into reality.
                 </p>
                 <div class="cta-buttons">
-                    <a href="/contact/" class="btn-primary">
-                        <i class="fas fa-paper-plane"></i> Get Started Today
+                    <a href="/contact/" class="btn-primary btn-cta">
+                        <i class="fas fa-paper-plane"></i> Start Your Project
+                        <span class="btn-glow"></span>
                     </a>
-                    <a href="#" class="btn-secondary">
-                        <i class="fas fa-video"></i> Watch Demo
+                    <a href="#services" class="btn-secondary btn-cta-secondary">
+                        <i class="fas fa-play-circle"></i> Explore Services
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER WITH BUSINESS HOURS ===== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
+                <!-- Brand Column -->
                 <div class="footer-column">
                     <h3 class="footer-logo">
-                        <i class="fas fa-code"></i> MyDjango
+                        <i class="fas fa-crown"></i> MusaMali Derick
                     </h3>
                     <p class="footer-description">
-                        Building amazing web applications with Django. 
-                        Fast, secure, and scalable.
+                        Creative & Technology Solutions - Photography, Graphic Design, 
+                        Videography, Fabrication, and Web Development.
                     </p>
                     <div class="footer-socials">
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About</a></li>
                         <li><a href="/contact/">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Support</a></li>
                     </ul>
                 </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Photography</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Videography</a></li>
+                        <li><a href="#">Fabrication</a></li>
+                        <li><a href="#">Web Development</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> info@mydjango.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Silicon Valley, CA</li>
+                        <li><i class="fas fa-envelope"></i> info@musamaliderick.com</li>
+                        <li><i class="fas fa-phone"></i> +256 (XXX) XXX-XXX</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</li>
+                    </ul>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="footer-column footer-hours">
+                    <h4>Business Hours</h4>
+                    <ul>
+                        <li>
+                            <span class="day"><i class="fas fa-calendar-day"></i> Mon – Fri</span>
+                            <span class="time">8:00 AM – 6:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day"><i class="fas fa-calendar-day"></i> Saturday</span>
+                            <span class="time">9:00 AM – 4:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day"><i class="fas fa-calendar-day"></i> Sunday</span>
+                            <span class="time">Closed</span>
+                        </li>
+                        <li style="border-bottom: none; margin-top: 0.2rem; padding-top: 0.2rem;">
+                            <span class="day"><i class="fas fa-clock"></i> After Hours</span>
+                            <span class="time" style="font-size: 0.85rem; color: #b6ccdf;">By Appointment</span>
+                        </li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Bottom Bar -->
             <div class="footer-bottom">
-                <p>&copy; 2026 MyDjango. All rights reserved.</p>
+                <p>&copy; 2026 MusaMali Derick. All rights reserved.</p>
                 <div class="footer-legal">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
+                    <a href="#">FAQ</a>
                 </div>
             </div>
         </div>
@@ -335,8 +507,32 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- ===== DYNAMIC JAVASCRIPT ===== -->
     <script>
+        // ===== DARK MODE TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+        let isDark = false;
+
+        // Check saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.className = 'fas fa-sun';
+            isDark = true;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
         // ===== HAMBURGER MENU =====
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
@@ -346,7 +542,6 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close menu on link click
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -389,7 +584,6 @@
             }
         };
 
-        // ===== INTERSECTION OBSERVER FOR COUNTERS =====
         const statsSection = document.querySelector('.stats-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -450,17 +644,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
         // ===== TYPING EFFECT =====
         const typingText = document.getElementById('typing-text');
         const text = typingText.textContent;
@@ -475,42 +658,16 @@
             }
         };
         
-        // Start typing when page loads
         setTimeout(typeWriter, 500);
-
-        // ===== PARALLAX EFFECT ON HERO =====
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const heroContent = document.querySelector('.hero-content');
-            
-            if (hero) {
-                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-            }
-        });
 
         // ===== DYNAMIC YEAR IN FOOTER =====
         document.querySelector('.footer-bottom p').innerHTML = 
-            `&copy; ${new Date().getFullYear()} MyDjango. All rights reserved.`;
+            `&copy; ${new Date().getFullYear()} MusaMali Derick. All rights reserved.`;
 
-        // ===== MOBILE RESPONSIVE TOUCH =====
-        // Add touch feedback for mobile
-        document.querySelectorAll('.feature-card, .btn-primary, .btn-secondary').forEach(element => {
-            element.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            });
-            element.addEventListener('touchend', function() {
-                this.style.transform = '';
-            });
-        });
-
-        // ===== CONSOLE LOG WELCOME =====
-        console.log('🚀 Welcome to MyDjango!');
-        console.log('💻 Built with Django 6.0');
-        console.log('✨ Ready to build something amazing!');
-
-        console.log('%c MyDjango ', 'background: #6C63FF; color: white; font-size: 20px; font-weight: bold; padding: 10px; border-radius: 5px;');
-        console.log('%c Build Amazing Web Applications ', 'color: #6C63FF; font-size: 14px;');
+        console.log('📸 Welcome to MusaMali Derick!');
+        console.log('🎨 Creative & Technology Solutions');
+        console.log('🚜 Photography • Graphic • Videography • Fabrication • Technology');
+        console.log('✨ Bringing ideas to life through innovation!');
     </script>
 </body>
 </html>

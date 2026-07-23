@@ -138,6 +138,8 @@ SENDGRID_API_KEY = 'your-sendgrid-api-key'
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False  # Set to True for testing
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
